@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Atom + Bits</title>
+<meta name="description" content="How Atom + Bits pressure-tests its own discovery methodology, including an internal pilot: Kitchen ERP as a discovery accelerant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Atom + Bits logo">Atom + Bits</a>
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-study.html" class="active">Case Study</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="status-badge">● Client case studies in progress — here's how we test our own method first</span>
+    <h1>We ran our discovery process on our own kitchen before we ever ran it on a client.</h1>
+    <p class="lede">We don't have a published client case study live yet — engagements are underway, and results will land here as they wrap. In the meantime, here's a real pilot that shaped how we approach discovery: proof of method, not a client story.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="chip">Internal pilot</span>
+    <h2>Kitchen ERP as a discovery accelerant</h2>
+    <p>Enterprise ERP discovery usually leans on round after round of stakeholder interviews and document reviews before the real dependencies show up — data quality issues, exception handling, permissions, mobility constraints. Too often those surface late, during testing or after launch, once they're expensive to fix.</p>
+    <p>So we tested a different approach on a real, working system: a household kitchen inventory tool, self-hosted on the open-source platform Grocy, used as a lightweight stand-in for enterprise ERP discovery. The question wasn't really about the kitchen — it was whether <em>building</em> something instead of just talking about it would surface the same kinds of decisions and trade-offs that show up in large-scale ERP projects, and whether it would get there faster.</p>
+    <div class="callout">"This project is a pilot for how Atom + Bits approaches discovery with clients, dressed up as a kitchen app."</div>
+
+    <div class="stats">
+      <div class="stat"><span class="num">1</span><span class="label">structured discovery session produced a complete v1 PRD</span></div>
+      <div class="stat"><span class="num">~1 day</span><span class="label">from PRD kickoff to a live, working system</span></div>
+      <div class="stat"><span class="num">5 of 6</span><span class="label">ERP-relevant decision categories surfaced within two weeks</span></div>
+      <div class="stat"><span class="num">5+</span><span class="label">real scope trade-offs made explicit instead of left vague</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What building (instead of interviewing) revealed</span>
+      <h2>The same categories that show up in enterprise ERP discovery, just faster</h2>
+    </div>
+    <div class="grid">
+      <div class="card on-dark">
+        <h3>Item / master data setup</h3>
+        <p>Real barcode coverage gaps showed up the moment items got scanned — not from asking "will barcodes work for you?" in an interview.</p>
+      </div>
+      <div class="card on-dark">
+        <h3>Inventory zones</h3>
+        <p>The need for unlimited custom storage zones (not a fixed template) was obvious on day one of physically stocking the kitchen — the kind of requirement that's easy to underscope in a workshop.</p>
+      </div>
+      <div class="card on-dark">
+        <h3>Barcode / lookup integration</h3>
+        <p>Exposed the unhappy path immediately: what happens when a scan comes back empty. That failure mode often gets glossed over until real testing happens.</p>
+      </div>
+      <div class="card on-dark">
+        <h3>Inventory rules</h3>
+        <p>Forced an actual threshold number instead of a vague "let us know when we're running low."</p>
+      </div>
+      <div class="card on-dark">
+        <h3>Role & permission model</h3>
+        <p>Landing on a real decision took one round of questions, versus the many workshop cycles a multi-role enterprise permission matrix usually eats up.</p>
+      </div>
+      <div class="card on-dark">
+        <h3>Mobility UX</h3>
+        <p>Testing on a real device turned up a genuine compatibility gap within the first two weeks — the kind of finding that often doesn't surface until formal testing, late in an enterprise rollout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Honest limitations</span>
+      <h2>What this pilot doesn't prove yet</h2>
+    </div>
+    <p>A two-person household is a much simpler stakeholder environment than a multi-department enterprise rollout, where competing incentives — not just missing information — are what actually slow discovery down. This needs to be tested against a situation with real stakeholder conflict before we'd claim it generalizes to enterprise clients. Unit-of-measure configuration also wasn't stress-tested in v1 — that's a known open gap, not a finding.</p>
+    <p>What we can say: pairing traditional interview-heavy discovery with a real, working, low-fidelity analog surfaced the same kinds of dependencies and trade-offs in days instead of months. That's directly useful for how we run Operational Readiness & Workflow Intelligence Assessments, and it's part of why our discovery process looks the way it does.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap center max-narrow">
+    <h2>Want to see what this looks like applied to your operation?</h2>
+    <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand"><img src="assets/logo.png" alt="Atom + Bits logo">Atom + Bits</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="case-study.html">Case Study</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://www.linkedin.com/company/atom-bits-ai/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Atom + Bits. All rights reserved.</span>
+      <span><a href="mailto:karina@atomandbits.ai">karina@atomandbits.ai</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
