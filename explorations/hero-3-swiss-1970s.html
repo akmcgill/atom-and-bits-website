@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karina McGill — Option 3: Swiss International Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f2ec; --black:#111111;
+    --red:#d93025; --blue:#1a4fa0; --yellow:#f2b705;
+    --rule:#111111;
+    --col:calc((100% - 11 * 24px) / 12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Archivo','Helvetica Neue',Helvetica,Arial,sans-serif;background:var(--paper);
+    color:var(--black);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1240px;margin:0 auto;padding:0 48px}
+
+  /* top rule + nav on the grid */
+  .topbar{border-bottom:2px solid var(--rule)}
+  nav{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;padding:20px 0}
+  .name{grid-column:1 / span 4;font-weight:800;font-size:17px;letter-spacing:.01em;text-transform:uppercase}
+  .name span{color:var(--red)}
+  .nav-links{grid-column:5 / span 5;display:flex;gap:36px;
+    font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  .nav-links a{padding-bottom:2px;border-bottom:2px solid transparent}
+  .nav-links a.active,.nav-links a:hover{border-color:var(--black)}
+  .nav-cta{grid-column:11 / span 2;justify-self:end;
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--black);color:var(--paper);padding:12px 22px}
+  .nav-cta:hover{background:var(--red)}
+
+  header{position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:64px 0 0}
+
+  .meta-row{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;
+    border-bottom:1px solid var(--rule);padding-bottom:14px;margin-bottom:44px;
+    font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+  .meta-row .m1{grid-column:1 / span 3}
+  .meta-row .m2{grid-column:4 / span 3}
+  .meta-row .m3{grid-column:7 / span 3}
+  .meta-row .m4{grid-column:10 / span 3;text-align:right}
+  .meta-row b{color:var(--red);font-weight:700}
+
+  .copy{grid-column:1 / span 8;position:relative;z-index:2}
+  h1{font-weight:800;font-size:clamp(44px,5.4vw,78px);line-height:.98;letter-spacing:-.025em;
+    text-transform:none;margin-bottom:36px;text-align:left}
+  h1 .r{color:var(--red)}
+  .lead{font-size:17px;line-height:1.6;max-width:52ch;margin-bottom:40px;text-align:left}
+  .lead strong{font-weight:700}
+  .cta-row{display:flex;gap:0;margin-bottom:64px}
+  .btn{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:18px 34px}
+  .btn-solid{background:var(--red);color:#fff}
+  .btn-solid:hover{background:var(--black)}
+  .btn-line{border:2px solid var(--black);margin-left:16px}
+  .btn-line:hover{background:var(--yellow);border-color:var(--black)}
+
+  /* flat overlapping shapes, right side */
+  .shapes{grid-column:9 / span 4;position:relative;min-height:380px;z-index:1}
+  .sq{position:absolute;width:230px;height:230px;background:var(--blue);right:96px;top:6px}
+  .ci{position:absolute;width:210px;height:210px;border-radius:50%;background:var(--red);right:0;top:120px;mix-blend-mode:multiply}
+  .bar-y{position:absolute;width:300px;height:56px;background:var(--yellow);right:40px;top:300px;mix-blend-mode:multiply}
+  .ln{position:absolute;width:2px;height:340px;background:var(--black);right:210px;top:0}
+
+  /* index of work: strict tabular list */
+  .index{border-top:2px solid var(--rule)}
+  .row{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:baseline;
+    padding:18px 0;border-bottom:1px solid var(--rule);cursor:pointer}
+  .row:hover .t{color:var(--red)}
+  .row .no{grid-column:1 / span 1;font-weight:700;font-size:13px;letter-spacing:.08em}
+  .row .t{grid-column:2 / span 6;font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .row .d{grid-column:8 / span 3;font-size:13px;line-height:1.45}
+  .row .n{grid-column:11 / span 2;text-align:right;font-weight:800;font-size:19px}
+  .row .n em{font-style:normal;color:var(--blue)}
+
+  @media(max-width:900px){
+    .container{padding:0 24px}
+    nav{display:flex;justify-content:space-between}
+    .nav-links{display:none}
+    .hero-grid{display:block;padding-top:44px}
+    .meta-row{display:none}
+    .shapes{display:none}
+    .row{display:flex;flex-wrap:wrap;gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <nav>
+      <a class="name" href="#">Karina<span>*</span>McGill</a>
+      <div class="nav-links">
+        <a class="active" href="#">Home</a><a href="#">About</a><a href="#">Case Studies</a><a href="#">Articles</a>
+      </div>
+      <a class="nav-cta" href="#">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="meta-row">
+        <span class="m1"><b>*</b> Product leader</span>
+        <span class="m2">Founder, Atom + Bits</span>
+        <span class="m3">Digital transformation</span>
+        <span class="m4">Cincinnati, OH — 2026</span>
+      </div>
+
+      <div class="copy">
+        <h1>Technology doesn't fix chaos.<br>It exposes it <span class="r">faster.</span></h1>
+        <p class="lead">Twenty years helping organizations navigate the messy middle between operational
+          reality and digital transformation, from a <strong>$100M ERP modernization</strong> across
+          32 manufacturing plants to a learning platform reaching <strong>300,000 associates</strong>.
+          The throughline: start with the people doing the work, and the technology follows.</p>
+        <div class="cta-row">
+          <a class="btn btn-solid" href="#">See the work</a>
+          <a class="btn btn-line" href="#">About me</a>
+        </div>
+      </div>
+
+      <div class="shapes" aria-hidden="true">
+        <div class="ln"></div>
+        <div class="sq"></div>
+        <div class="ci"></div>
+        <div class="bar-y"></div>
+      </div>
+    </div>
+
+    <div class="index">
+      <div class="row">
+        <span class="no">01</span>
+        <span class="t">Unsticking a stalled transformation</span>
+        <span class="d">One workshop and a service blueprint became "the day the project really started."</span>
+        <span class="n"><em>$100M+</em></span>
+      </div>
+      <div class="row">
+        <span class="no">02</span>
+        <span class="t">Training that shows up in the moment</span>
+        <span class="d">In-app learning for 300,000 associates cut help-desk tickets in one quarter.</span>
+        <span class="n"><em>&minus;25%</em></span>
+      </div>
+      <div class="row">
+        <span class="no">03</span>
+        <span class="t">Scaling a design org that held together</span>
+        <span class="d">Product operations and career ladders built to survive 4x growth.</span>
+        <span class="n"><em>12&rarr;50</em></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+</body>
+</html>

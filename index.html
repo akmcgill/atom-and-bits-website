@@ -3,139 +3,393 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atom + Bits — Operational clarity before AI</title>
-<meta name="description" content="Atom + Bits helps operations and technology leaders find the workflow chaos, coordination gaps, and hidden dependencies before they turn into expensive AI and automation surprises.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Karina McGill — Product Leader &amp; Founder, Atom + Bits</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<style>
+  :root{
+    --ink:#0f171f; --cream:#f8f5ee; --orange:#f16935; --teal:#00b8a1;
+    --card:#efebe1; --hair:rgba(15,23,31,.14); --muted:rgba(15,23,31,.62); --r:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--cream);color:var(--ink);font-size:17px;line-height:1.55;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1180px;margin:0 auto;padding:0 40px}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15.5px;
+    padding:13px 24px;border-radius:999px;transition:transform .15s,box-shadow .15s,background .15s,color .15s;cursor:pointer}
+  .btn-primary{background:var(--orange);color:var(--cream);box-shadow:0 6px 0 rgba(15,23,31,.18)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-outline{border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:var(--cream)}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+  .eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal)}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;height:76px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 40px;background:rgba(248,245,238,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);z-index:10}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px}
+  .nav-links{display:flex;gap:34px;font-weight:500;font-size:15.5px}
+  .nav-links a{color:var(--muted);transition:color .15s}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+
+  /* ---------- HERO ---------- */
+  header{position:relative;padding:64px 0 84px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
+  .orbits{position:absolute;right:-180px;top:-90px;width:640px;height:640px;pointer-events:none;z-index:0}
+  .orbit{position:absolute;border:1px solid var(--hair);border-radius:50%}
+  .o1{inset:0}.o2{inset:70px;border-color:rgba(15,23,31,.10)}.o3{inset:150px;border-color:rgba(15,23,31,.08)}
+  .dot{position:absolute;border-radius:50%}
+  .d1{background:var(--orange);width:14px;height:14px;top:12%;left:78%}
+  .d2{background:var(--teal);width:10px;height:10px;top:66%;left:6%}
+  .d3{background:var(--ink);width:8px;height:8px;top:88%;left:62%}
+  .copy{position:relative;z-index:1}
+  h1{font-size:clamp(38px,4.6vw,60px);font-weight:700;line-height:1.06;letter-spacing:-.02em;margin:22px 0 24px}
+  h1 em{font-style:normal;color:var(--orange);position:relative;white-space:nowrap}
+  h1 em::after{content:'';position:absolute;left:0;right:0;bottom:6px;height:5px;background:var(--teal);opacity:.55;border-radius:3px}
+  .lead{font-size:clamp(18px,1.5vw,21px);color:var(--muted);max-width:560px;margin-bottom:34px}
+  .lead strong{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+  .proof{display:flex;gap:12px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--hair);
+    border-radius:999px;padding:7px 15px;font-size:13.5px;font-weight:500;color:var(--muted)}
+  .pill b{color:var(--ink);font-weight:700}
+  .stack{position:relative;z-index:1;display:flex;flex-direction:column;gap:18px}
+  .h-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r);padding:22px 24px;box-shadow:0 6px 0 rgba(15,23,31,.06)}
+  .h-card .tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .h-card h3{font-size:19px;font-weight:600;line-height:1.3;margin-bottom:4px}
+  .h-card p{font-size:14.5px;color:var(--muted)}
+  .h-card.tilt-l{transform:rotate(-1.2deg)}
+  .h-card.tilt-r{transform:rotate(1.1deg) translateX(14px)}
+  .h-card.accent{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .h-card.accent .tag{color:var(--orange)}
+  .h-card.accent p{color:rgba(248,245,238,.72)}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:76px 0}
+  .sec-head{max-width:640px;margin-bottom:44px}
+  h2{font-size:clamp(30px,3.6vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin:18px 0 14px}
+  .sec-head p{color:var(--muted);font-size:18px}
+
+  /* ---------- CASE STUDY INDEX (Swiss-style rows, brand skin) ---------- */
+  .index{border-top:2px solid var(--ink)}
+  .cs-row{display:grid;grid-template-columns:64px 1.4fr 1fr 140px 40px;gap:24px;align-items:center;
+    padding:26px 8px;border-bottom:1px solid var(--hair);transition:background .15s}
+  .cs-row:hover{background:var(--card)}
+  .cs-row .no{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+  .cs-row .t h3{font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.25;transition:color .15s}
+  .cs-row:hover .t h3{color:var(--orange)}
+  .cs-row .t .where{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-top:4px}
+  .cs-row .d{font-size:14.5px;color:var(--muted);line-height:1.5}
+  .cs-row .n{text-align:right;font-weight:700;font-size:22px;color:var(--ink)}
+  .cs-row .arrow{font-size:20px;color:var(--muted);transition:transform .15s,color .15s;text-align:right}
+  .cs-row:hover .arrow{transform:translateX(5px);color:var(--orange)}
+  .index-foot{display:flex;justify-content:flex-end;padding-top:26px}
+
+  /* ---------- HOW I WORK ---------- */
+  .principles{background:var(--card);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .p-card{background:var(--cream);border:1px solid var(--hair);border-radius:var(--r);padding:30px 28px}
+  .p-card .num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;
+    font-weight:700;font-size:15px;margin-bottom:18px;background:var(--ink);color:var(--cream)}
+  .p-card:nth-child(2) .num{background:var(--orange)}
+  .p-card:nth-child(3) .num{background:var(--teal)}
+  .p-card h3{font-size:20px;font-weight:600;margin-bottom:10px}
+  .p-card p{font-size:15px;color:var(--muted)}
+  .p-quote{margin-top:40px;display:flex;gap:18px;align-items:flex-start}
+  .p-quote .mark{font-size:56px;font-weight:700;color:var(--orange);line-height:.8}
+  .p-quote blockquote{font-size:clamp(19px,2vw,24px);font-weight:500;line-height:1.4;max-width:760px}
+  .p-quote cite{display:block;font-style:normal;font-size:14px;color:var(--muted);margin-top:10px}
+
+  /* ---------- ATOM + BITS BAND ---------- */
+  .ab-band{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+  .ab-band .orbits{right:-220px;top:-160px;opacity:.35}
+  .ab-band .orbit{border-color:rgba(248,245,238,.22)}
+  .ab-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative;z-index:1}
+  .ab-band .eyebrow{color:var(--orange)}
+  .ab-band h2{color:var(--cream)}
+  .ab-band .sec-head p{color:rgba(248,245,238,.72)}
+  .ab-band .sec-head{margin-bottom:30px}
+  .ab-card{background:rgba(248,245,238,.06);border:1px solid rgba(248,245,238,.18);border-radius:var(--r);padding:28px}
+  .ab-card .tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+  .ab-card h3{font-size:21px;font-weight:600;margin-bottom:8px}
+  .ab-card p{font-size:15px;color:rgba(248,245,238,.72);margin-bottom:18px}
+  .ab-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14.5px}
+  .ab-card li{display:flex;gap:10px;align-items:baseline;color:rgba(248,245,238,.85)}
+  .ab-card li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--orange);flex:none;transform:translateY(-1px)}
+
+  /* ---------- ARTICLES ---------- */
+  .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .art-card{border:1px solid var(--hair);border-radius:var(--r);padding:26px;background:#fff;
+    display:flex;flex-direction:column;gap:12px;transition:transform .15s,box-shadow .15s;cursor:pointer}
+  .art-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,23,31,.08)}
+  .art-card .date{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .art-card h3{font-size:19px;font-weight:600;line-height:1.3}
+  .art-card p{font-size:14.5px;color:var(--muted);flex:1}
+  .art-card .more{font-size:14px;font-weight:600;color:var(--orange)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);padding:72px 0 36px;position:relative;overflow:hidden}
+  .f-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:56px;position:relative;z-index:1}
+  footer h2{color:var(--cream);margin:14px 0 10px}
+  .f-sub{color:rgba(248,245,238,.72);max-width:440px;margin-bottom:26px}
+  .f-links{display:flex;flex-direction:column;gap:12px;font-size:15.5px}
+  .f-links a{color:rgba(248,245,238,.72);transition:color .15s}
+  .f-links a:hover{color:var(--cream)}
+  .f-links .label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:2px}
+  .f-bottom{border-top:1px solid rgba(248,245,238,.16);padding-top:24px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;font-size:13.5px;color:rgba(248,245,238,.5);position:relative;z-index:1}
+  footer .orbits{left:-260px;right:auto;bottom:-320px;top:auto;opacity:.25}
+  footer .orbit{border-color:rgba(248,245,238,.22)}
+
+  @media(max-width:900px){
+    .container{padding:0 24px}
+    nav{padding:0 24px}
+    .nav-links{display:none}
+    .hero-grid,.ab-grid{grid-template-columns:1fr}
+    .p-grid,.art-grid{grid-template-columns:1fr}
+    .cs-row{grid-template-columns:40px 1fr 90px;gap:14px}
+    .cs-row .d,.cs-row .arrow{display:none}
+    .orbits{opacity:.4}
+  }
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap nav-row">
-    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Atom + Bits logo">Atom + Bits</a>
-    <nav class="primary-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="case-study.html">Case Study</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+<nav>
+  <a class="logo" href="#">
+    <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="4.2" fill="#f16935"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#0f171f" stroke-width="1.4" transform="rotate(28 13 13)"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#00b8a1" stroke-width="1.4" transform="rotate(-28 13 13)"/></svg>
+    Karina McGill
+  </a>
+  <div class="nav-links">
+    <a class="active" href="#">Home</a><a href="#about">About</a><a href="#work">Case Studies</a><a href="#writing">Articles</a>
+  </div>
+  <a class="btn btn-primary" href="#contact">Work with me</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="orbits">
+        <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+        <div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div>
+      </div>
+      <div class="copy">
+        <span class="eyebrow">Product leader · Founder, Atom + Bits</span>
+        <h1>Technology doesn't fix chaos. It exposes it <em>faster</em>.</h1>
+        <p class="lead">I'm Karina. For twenty years I've helped organizations navigate the messy middle between
+          operational reality and digital transformation, from a <strong>$100M ERP modernization across 32 plants</strong>
+          to a learning platform reaching <strong>300,000 associates</strong>. The throughline: start with the people
+          doing the work, and the technology follows.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#work">See the work &rarr;</a>
+          <a class="btn btn-outline" href="#about">More about me</a>
+        </div>
+        <div class="proof">
+          <span class="pill"><b>$100M+</b> transformation led</span>
+          <span class="pill"><b>300K</b> users reached</span>
+          <span class="pill"><b>$1M</b> saved</span>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="h-card tilt-l">
+          <div class="tag">Latest case study</div>
+          <h3>Unsticking a stalled $100M program</h3>
+          <p>One workshop, one service blueprint, and the day "the project really started."</p>
+        </div>
+        <div class="h-card accent tilt-r">
+          <div class="tag">Atom + Bits</div>
+          <h3>Ready for AI? Let's find out first.</h3>
+          <p>A human-centered readiness assessment, before the expensive part.</p>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="orbit-bg"></div>
-  <div class="wrap">
-    <span class="eyebrow">Operational clarity, before AI</span>
-    <h1>AI isn't a magic wand. It just moves faster than your operations can keep up with.</h1>
-    <p class="lede">Ask any CTO who's survived a failed digital transformation: technology doesn't fix operational chaos — it exposes it, faster. Most modernization efforts stall because organizations try to automate workflows nobody fully understood in the first place.</p>
-    <div class="hero-ctas">
-      <a href="contact.html" class="btn btn-primary">Book a consultation</a>
-      <a href="services.html" class="btn btn-outline">See how we work</a>
+<!-- ================= CASE STUDIES ================= -->
+<section id="work">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Selected work</span>
+      <h2>Five stories about people and technology.</h2>
+      <p>Different industries, different tools, same starting point: the people doing the work.</p>
+    </div>
+    <div class="index">
+      <a class="cs-row" href="#">
+        <span class="no">01</span>
+        <span class="t"><h3>Unsticking a stalled $100M transformation</h3><span class="where">Kroger · Manufacturing</span></span>
+        <span class="d">A weeklong workshop and an end-to-end service blueprint turned two months of circling into a plan. Zero plant downtime at go-live.</span>
+        <span class="n">$100M+</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="cs-row" href="#">
+        <span class="no">02</span>
+        <span class="t"><h3>Training that shows up when you need it</h3><span class="where">Kroger · Retail</span></span>
+        <span class="d">In-app microtraining for 300,000 associates, built from ticket analysis and floor-level research. Help-desk tickets down 25% in one quarter.</span>
+        <span class="n">&minus;25%</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="cs-row" href="#">
+        <span class="no">03</span>
+        <span class="t"><h3>A fresh welcome, at enterprise scale</h3><span class="where">Kroger · HR Modernization</span></span>
+        <span class="d">Redesigned the new-associate onboarding experience with an MVP team, then scaled it to hundreds of thousands of associates.</span>
+        <span class="n">0&rarr;1</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="cs-row" href="#">
+        <span class="no">04</span>
+        <span class="t"><h3>Scaling a design org that held together</h3><span class="where">Kroger · Org Design</span></span>
+        <span class="d">Product operations, ways of working, and a benchmarked career ladder that carried a team through 4x growth.</span>
+        <span class="n">12&rarr;50</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+      <a class="cs-row" href="#">
+        <span class="no">05</span>
+        <span class="t"><h3>Auditing what the AI actually built</h3><span class="where">Atom + Bits · AI Readiness</span></span>
+        <span class="d">Caught a hallucinated data source, a swapped scoring formula, and content drift in an AI-built diagnostic, then fixed the architecture underneath.</span>
+        <span class="n">2026</span>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+    <div class="index-foot">
+      <a class="btn btn-outline" href="#">All case studies &rarr;</a>
     </div>
   </div>
 </section>
 
-<div class="orbit-divider"></div>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">The problem</span>
-      <h2>Operations are usually held together by spreadsheets, workarounds, and one person everyone's afraid to let take vacation.</h2>
-      <p>That's not a knock on your team — it's just what happens when work outgrows the systems meant to track it. The trouble starts when someone tries to bolt AI or a new platform onto that reality without understanding it first. The gap between how work actually happens and how it's assumed to happen is where transformation efforts quietly break down.</p>
+<!-- ================= HOW I WORK ================= -->
+<section class="principles" id="about">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">How I work</span>
+      <h2>Three habits, twenty years.</h2>
+    </div>
+    <div class="p-grid">
+      <div class="p-card">
+        <span class="num">1</span>
+        <h3>Start with the people</h3>
+        <p>I've mapped 100+ workflows by standing on plant floors and store floors, not by reading process docs.
+          The real system lives in how people actually work, and that's where good product decisions come from.</p>
+      </div>
+      <div class="p-card">
+        <span class="num">2</span>
+        <h3>Make the mess visible</h3>
+        <p>Service blueprints, RAID logs, roadmaps. When trade-offs are laid out where everyone can see them,
+          the arguing stops and the deciding starts.</p>
+      </div>
+      <div class="p-card">
+        <span class="num">3</span>
+        <h3>Build for the day after launch</h3>
+        <p>Champions on the floor, training in the flow of work, support models that outlast the project team.
+          Go-live is the start of adoption, not the end of the project.</p>
+      </div>
+    </div>
+    <div class="p-quote">
+      <span class="mark">&ldquo;</span>
+      <blockquote>This was the day the project really started. We've just been talking in circles. Now we're on the same page.
+        <cite>Project sponsor, after the Project MAKE alignment workshop</cite>
+      </blockquote>
     </div>
   </div>
 </section>
 
-<section class="section-dark">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What we do</span>
-      <h2>We find the messy middle before it costs you a launch.</h2>
-      <p>Atom + Bits works with operations and technology leaders to surface workflow chaos, coordination bottlenecks, hidden dependencies, and transformation risk — before they turn into expensive surprises. In other words: we help you avoid automating confusion at scale.</p>
-    </div>
-    <div class="grid">
-      <div class="card on-dark">
-        <h3>Where does work actually break down?</h3>
-        <p>We map how work really flows — not how the org chart or the SOP says it does — and show you where it falls apart.</p>
+<!-- ================= ATOM + BITS ================= -->
+<section class="ab-band">
+  <div class="container">
+    <div class="ab-grid">
+      <div class="orbits">
+        <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
       </div>
-      <div class="card on-dark">
-        <h3>What dependencies has nobody written down?</h3>
-        <p>Every org has knowledge that lives in one person's head and one shadow spreadsheet. We find it before an automation project trips over it.</p>
+      <div>
+        <div class="sec-head">
+          <span class="eyebrow">Atom + Bits</span>
+          <h2>In the middle of a transformation right now?</h2>
+          <p>Atom + Bits is my consultancy for the messy middle between operational reality and digital
+            transformation. Most modernization efforts don't fail because the tech is bad. They fail because
+            someone tried to automate a workflow nobody actually understood in the first place.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Start a conversation &rarr;</a>
+        </div>
       </div>
-      <div class="card on-dark">
-        <h3>Are you actually ready for AI, or just excited about it?</h3>
-        <p>We assess the operational conditions that determine whether automation creates value or just moves the chaos somewhere more expensive.</p>
-      </div>
-      <div class="card on-dark">
-        <h3>Is leadership looking at the same picture?</h3>
-        <p>Executive workshops and facilitation that get your leadership team aligned on what's actually happening before you commit budget.</p>
-      </div>
-    </div>
-    <p class="mt-lg"><a href="services.html" class="btn btn-outline on-dark">See the full list of services</a></p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Why it matters</span>
-      <h2>What clients walk away with</h2>
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h3>Lower transformation risk</h3>
-        <p>Fewer expensive surprises once implementation starts.</p>
-      </div>
-      <div class="card">
-        <h3>Faster partner ramp-up</h3>
-        <p>Your systems integrators start from a real picture of how work happens, not a guess.</p>
-      </div>
-      <div class="card">
-        <h3>Stronger go-live adoption</h3>
-        <p>People actually use what gets built, because it matches how they work.</p>
-      </div>
-      <div class="card">
-        <h3>Tech that flexes with you</h3>
-        <p>Stacks built to evolve as your process evolves — not harden around today's workarounds.</p>
+      <div class="ab-card">
+        <div class="tag">Where we'd start</div>
+        <h3>Human-centered AI readiness assessment</h3>
+        <p>A clear read on where automation creates value instead of fragility, before the expensive part.</p>
+        <ul>
+          <li>Workflow health and the duct tape holding it together</li>
+          <li>Legacy knowledge, adoption risk, and human trust</li>
+          <li>Governance grounded in the NIST AI framework</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="tight">
-  <div class="wrap center max-narrow">
-    <h2>Before you spend real money automating confusion, let's find it first.</h2>
-    <div class="hero-ctas center" style="justify-content:center;">
-      <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+<!-- ================= ARTICLES ================= -->
+<section id="writing">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Articles</span>
+      <h2>Field notes from the messy middle.</h2>
+    </div>
+    <div class="art-grid">
+      <article class="art-card">
+        <span class="date">Coming soon</span>
+        <h3>New technology is not a magic wand</h3>
+        <p>Ask any leader who's lived through a "transformation" that didn't go as planned. What the tech
+          actually does to your operations, and what to fix first.</p>
+        <span class="more">Read &rarr;</span>
+      </article>
+      <article class="art-card">
+        <span class="date">Coming soon</span>
+        <h3>What a 20-year plant associate taught me about change</h3>
+        <p>She wasn't afraid of the new system. She was afraid of losing the standing she'd built over a career.
+          Why adoption is about identity, not features.</p>
+        <span class="more">Read &rarr;</span>
+      </article>
+      <article class="art-card">
+        <span class="date">Coming soon</span>
+        <h3>Your help desk knows where training failed</h3>
+        <p>28% of tickets traced back to gaps basic training should have covered. How to read tickets as a
+          product research tool, not a queue.</p>
+        <span class="more">Read &rarr;</span>
+      </article>
     </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-row">
-      <div class="footer-brand"><img src="assets/logo.png" alt="Atom + Bits logo">Atom + Bits</div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="case-study.html">Case Study</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="https://www.linkedin.com/company/atom-bits-ai/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="container">
+    <div class="orbits">
+      <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Atom + Bits. All rights reserved.</span>
-      <span><a href="mailto:karina@atomandbits.ai">karina@atomandbits.ai</a></span>
+    <div class="f-grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Let's talk.</h2>
+        <p class="f-sub">Hiring for a product or transformation role, or staring down a modernization of your own?
+          Either way, I'd love to hear what you're working on.</p>
+        <a class="btn btn-primary" href="mailto:karina.mcgill@gmail.com">karina.mcgill@gmail.com</a>
+      </div>
+      <div class="f-links">
+        <span class="label">Site</span>
+        <a href="#">Home</a><a href="#about">About</a><a href="#work">Case Studies</a><a href="#writing">Articles</a>
+      </div>
+      <div class="f-links">
+        <span class="label">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/mcgillan">LinkedIn</a>
+        <a href="#">Atom + Bits</a>
+        <span style="color:rgba(248,245,238,.5)">Cincinnati, OH</span>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>&copy; 2026 Karina McGill · Atom + Bits LLC</span>
+      <span>Designed in the messy middle.</span>
     </div>
   </div>
 </footer>
