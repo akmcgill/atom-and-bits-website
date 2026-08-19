@@ -110,12 +110,18 @@ Label.
   Body text — the insight this row is making.
   ```
   Known inconsistency to clean up: the discovery page (`project-make-discovery.html`) currently uses a slightly
-  different visual variant of this component (two small labels instead of one bold headline + one label). Both
-  render fine on their own pages since each page's CSS is self-contained, but they should be normalized to one
-  version next time either page gets touched, so future markdown always maps to the same visual result.
+  different visual variant of this component — two small labels instead of one bold headline + one label. If a
+  row needs a second small label (as discovery's rows do), add an optional `DECISION:` line above `DOMAIN:`. Both
+  variants render fine on their own pages since each page's CSS is self-contained, but they should be normalized
+  to one version next time either page gets touched, so future markdown always maps to the same visual result.
 - **`> MINI-QUOTE`** — a smaller second quote when a page already has one `# Pull quote` and needs a second voice
   (used in the go-live page). Same format as the pull quote block, just the `MINI-QUOTE` marker instead.
 - **Two callouts in one section** are fine — just repeat the `> CALLOUT (...)` block.
+
+## Linking to another case study
+
+Use standard markdown link syntax inline in a paragraph: `[link text](project-make-discovery.html)`. This shows
+up most often in a "What's next in this series" section that references other pages.
 
 ## What NOT to worry about
 
@@ -130,3 +136,8 @@ Label.
 - `case-studies/_template.md` — blank starting point, copy it to start a new case study.
 - `case-studies/kitchen-erp.md` — a worked example, converted from the live, shipped `kitchen-erp.html` page, so
   you can compare the draft format side-by-side with the final result.
+- `case-studies/project-make-alignment.md`, `project-make-discovery.md`, `project-make-go-live.md`,
+  `in-app-learning.md` — the four other live case studies, also converted into this format, so every currently
+  shipped case study now has a matching markdown draft. From here forward, any edit to these pages should happen
+  in the `.md` file first, then get regenerated into HTML — keeping the markdown as the actual source of truth
+  instead of the HTML drifting ahead of it.
