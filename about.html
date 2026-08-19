@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Karina McGill</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f171f; --cream:#f8f5ee; --orange:#f16935; --teal:#00b8a1;
+    --card:#efebe1; --hair:rgba(15,23,31,.14); --muted:rgba(15,23,31,.62); --r:16px;
+    --blue-deep:#173a5e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--cream);color:var(--ink);font-size:17px;line-height:1.55}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1180px;margin:0 auto;padding:0 40px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;
+    padding:12px 22px;border-radius:999px;transition:transform .15s,background .15s,color .15s;cursor:pointer}
+  .btn-primary{background:var(--orange);color:var(--cream);box-shadow:0 6px 0 rgba(15,23,31,.18)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-outline{border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:var(--cream)}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+  .eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal)}
+  h2{font-size:clamp(26px,3vw,34px);font-weight:700;letter-spacing:-.015em;margin:14px 0 12px}
+
+  nav{position:sticky;top:0;height:76px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 40px;background:rgba(248,245,238,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);z-index:10}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px}
+  .nav-links{display:flex;gap:34px;font-weight:500;font-size:15.5px}
+  .nav-links a{color:var(--muted);transition:color .15s}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+
+  main{padding:56px 0 0}
+  .layout{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start}
+
+  /* SIDEBAR */
+  .sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px}
+  .photo{width:140px;height:140px;border-radius:50%;object-fit:cover;background:var(--card);
+    border:4px solid var(--card);display:block}
+  .photo-fallback{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--teal));
+    display:flex;align-items:center;justify-content:center;color:var(--cream);font-weight:700;font-size:38px}
+  .sidebar h1{font-size:24px;font-weight:700;letter-spacing:-.01em}
+  .sidebar .role{font-size:14.5px;color:var(--teal);font-weight:600;margin-top:2px}
+  .sidebar .bio{font-size:14.5px;color:var(--muted);margin-top:6px}
+  .sidebar .bio strong{color:var(--ink);font-weight:600}
+  .sidebar-facts{display:flex;flex-direction:column;gap:8px;font-size:13.5px;color:var(--muted);
+    border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:16px 0}
+  .sidebar-facts div{display:flex;gap:8px}
+  .sidebar-facts b{color:var(--ink)}
+  .sidebar-links{display:flex;flex-direction:column;gap:10px}
+  .sidebar-links a{font-size:14px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .sidebar-links a:hover{color:var(--orange)}
+
+  /* MAIN COLUMN — resume index */
+  .sec-head{margin-bottom:30px}
+  .sec-head p{color:var(--muted);font-size:16px}
+  .index{border-top:2px solid var(--ink)}
+  .r-row{display:grid;grid-template-columns:44px 1fr 220px 90px;gap:18px;align-items:baseline;
+    padding:18px 4px;border-bottom:1px solid var(--hair)}
+  .r-row .no{font-size:12px;font-weight:700;color:var(--muted)}
+  .r-row .role{font-size:16.5px;font-weight:600}
+  .r-row .org{font-size:12.5px;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+  .r-row .desc{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .r-row .date{font-size:12.5px;color:var(--muted);text-align:right;font-weight:500}
+
+  .edu-strip{margin-top:44px;padding-top:30px;border-top:1px solid var(--hair)}
+  .edu-strip h3{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .edu-pills{display:flex;flex-wrap:wrap;gap:10px}
+  .edu-pill{background:var(--card);border:1px solid var(--hair);border-radius:999px;padding:8px 16px;font-size:13.5px}
+
+  /* CAROUSEL — full width breakout, dark/blue band styled like About C */
+  .carousel-band{background:var(--blue-deep);color:var(--cream);margin-top:70px;padding:56px 0}
+  .carousel-band .eyebrow{color:var(--orange)}
+  .carousel-band h2{color:var(--cream)}
+  .carousel-band .sec-head p{color:rgba(248,245,238,.68)}
+  .carousel-wrap{position:relative}
+  .carousel{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:none}
+  .carousel::-webkit-scrollbar{display:none}
+  .cs-card{scroll-snap-align:start;flex:0 0 320px;background:rgba(248,245,238,.07);border:1px solid rgba(248,245,238,.2);
+    border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:8px;transition:transform .15s,background .15s}
+  .cs-card:hover{transform:translateY(-4px);background:rgba(248,245,238,.12)}
+  .cs-card .tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .cs-card h3{font-size:18px;font-weight:600;line-height:1.3;color:var(--cream)}
+  .cs-card p{font-size:13.5px;color:rgba(248,245,238,.68);flex:1}
+  .cs-card .metric{font-weight:700;font-size:20px;color:var(--orange)}
+  .cs-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+  .cs-arrow{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(248,245,238,.4);display:grid;place-items:center;
+    cursor:pointer;background:transparent;color:var(--cream);transition:background .15s,border-color .15s}
+  .cs-arrow:hover{background:var(--cream);color:var(--blue-deep);border-color:var(--cream)}
+
+  footer{background:var(--ink);color:var(--cream);padding:56px 0 30px}
+  footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer a{color:rgba(248,245,238,.72)}
+  footer a:hover{color:var(--cream)}
+
+  @media(max-width:900px){
+    .container{padding:0 24px}
+    nav{padding:0 24px}
+    .nav-links{display:none}
+    .layout{grid-template-columns:1fr}
+    .sidebar{position:static;flex-direction:row;align-items:center;flex-wrap:wrap}
+    .r-row{grid-template-columns:1fr;gap:4px}
+    .r-row .date{text-align:left}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">
+    <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="4.2" fill="#f16935"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#0f171f" stroke-width="1.4" transform="rotate(28 13 13)"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#00b8a1" stroke-width="1.4" transform="rotate(-28 13 13)"/></svg>
+    Karina McGill
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a class="active" href="about-b-sidebar.html">About</a><a href="index.html#work">Case Studies</a><a href="index.html#writing">Articles</a>
+  </div>
+  <a class="btn btn-primary" href="index.html#contact">Work with me</a>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="layout">
+
+      <aside class="sidebar">
+        <img class="photo" src="assets/headshot.jpg" alt="Karina McGill"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="photo-fallback" style="display:none">KM</div>
+        <div>
+          <h1>Karina McGill</h1>
+          <div class="role">Product Leader · Founder, Atom + Bits</div>
+          <p class="bio">Twenty years navigating the messy middle between operational reality and digital
+            transformation. Started in instructional design, which taught me the hardest part of change is the
+            person, not the tool.</p>
+        </div>
+        <div class="sidebar-facts">
+          <div><b>Based in</b> Cincinnati, OH</div>
+          <div><b>Focus</b> Product &amp; transformation</div>
+          <div><b>Education</b> MIT AI Products Certificate</div>
+        </div>
+        <div class="sidebar-links">
+          <a href="#resume-download">&darr; Download resume</a>
+          <a href="index.html#contact">&rarr; Get in touch</a>
+          <a href="https://www.linkedin.com/in/mcgillan">&rarr; LinkedIn</a>
+        </div>
+      </aside>
+
+      <div>
+        <div class="sec-head">
+          <span class="eyebrow">Resume</span>
+          <h2>The condensed version.</h2>
+          <p>Seven roles, one throughline: start with the people doing the work.</p>
+        </div>
+
+        <div class="index">
+          <div class="r-row">
+            <span class="no">01</span>
+            <span><span class="role">Founder &amp; Principal Consultant</span><div class="org">Atom + Bits LLC</div></span>
+            <span class="desc">Human-centered AI readiness and digital transformation consulting.</span>
+            <span class="date">2025—Present</span>
+          </div>
+          <div class="r-row">
+            <span class="no">02</span>
+            <span><span class="role">Sr. Manager, Product &amp; Program Management</span><div class="org">Kroger · Project MAKE</div></span>
+            <span class="desc">$100M+ ERP modernization across 32 manufacturing facilities.</span>
+            <span class="date">2022—2025</span>
+          </div>
+          <div class="r-row">
+            <span class="no">03</span>
+            <span><span class="role">Sr. Product Manager / Sr. Manager, Product Design</span><div class="org">Kroger Technology &amp; Digital</div></span>
+            <span class="desc">Scaled the design team ~12&rarr;50; shipped In-App Learning &amp; A Fresh Welcome.</span>
+            <span class="date">2018—2021</span>
+          </div>
+          <div class="r-row">
+            <span class="no">04</span>
+            <span><span class="role">Scrum Master</span><div class="org">Ingage Partners</div></span>
+            <span class="desc">Agile delivery and team facilitation across client engagements.</span>
+            <span class="date">2018</span>
+          </div>
+          <div class="r-row">
+            <span class="no">05</span>
+            <span><span class="role">Senior Solutions Consultant</span><div class="org">TiER1 Performance Solutions</div></span>
+            <span class="desc">SaaS learning platform, 45,000+ users, for Fifth Third, P&amp;G, Delta, U.S. Navy.</span>
+            <span class="date">2013—2018</span>
+          </div>
+          <div class="r-row">
+            <span class="no">06</span>
+            <span><span class="role">Instructional Designer &amp; Learning Strategist</span><div class="org">SCAD · Northern Kentucky University</div></span>
+            <span class="desc">Online curriculum design and faculty development, accessibility-first.</span>
+            <span class="date">2006—2013</span>
+          </div>
+        </div>
+
+        <div class="edu-strip">
+          <h3>Education &amp; Certifications</h3>
+          <div class="edu-pills">
+            <span class="edu-pill">M. Liberal Arts, NKU</span>
+            <span class="edu-pill">B.S. Economics, NKU</span>
+            <span class="edu-pill">MIT AI Products Certificate</span>
+            <span class="edu-pill">PSPO</span>
+            <span class="edu-pill">PMP</span>
+            <span class="edu-pill">LUMA Practitioner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-band">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Selected work</span>
+        <h2>Case studies</h2>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel" id="cs-carousel">
+          <a class="cs-card" href="case-studies/project-make-alignment.html">
+            <span class="tag">Kroger · Manufacturing</span>
+            <h3>Unsticking a stalled $100M transformation</h3>
+            <p>One workshop and a service blueprint turned two months of circling into a plan.</p>
+            <span class="metric">$100M+</span>
+          </a>
+          <a class="cs-card" href="case-studies/in-app-learning.html">
+            <span class="tag">Kroger · Retail</span>
+            <h3>Training that shows up when you need it</h3>
+            <p>In-app microtraining for 300,000 associates cut help-desk tickets in one quarter.</p>
+            <span class="metric">&minus;25%</span>
+          </a>
+          <a class="cs-card" href="case-studies/a-fresh-welcome.html">
+            <span class="tag">Kroger · HR Modernization</span>
+            <h3>A fresh welcome, at enterprise scale</h3>
+            <p>Redesigned onboarding with an MVP team, then scaled to hundreds of thousands of associates.</p>
+            <span class="metric">0&rarr;1</span>
+          </a>
+          <a class="cs-card" href="case-studies/product-ops-scaling.html">
+            <span class="tag">Kroger · Org Design</span>
+            <h3>Scaling a design org that held together</h3>
+            <p>Product operations and a career ladder built to survive 4x growth.</p>
+            <span class="metric">12&rarr;50</span>
+          </a>
+          <a class="cs-card" href="case-studies/ai-agent-audit.html">
+            <span class="tag">Atom + Bits · AI Readiness</span>
+            <h3>Auditing what the AI actually built</h3>
+            <p>Caught a hallucinated data source and a swapped scoring formula in an AI-built diagnostic.</p>
+            <span class="metric">2026</span>
+          </a>
+        </div>
+        <div class="cs-nav">
+          <div class="cs-arrow" id="cs-prev">&larr;</div>
+          <div class="cs-arrow" id="cs-next">&rarr;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <span>&copy; 2026 Karina McGill · Atom + Bits LLC</span>
+    <a href="index.html#contact">karina.mcgill@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  const track = document.getElementById('cs-carousel');
+  const step = () => track.querySelector('.cs-card').offsetWidth + 22;
+  document.getElementById('cs-next').addEventListener('click', () => track.scrollBy({left: step(), behavior: 'smooth'}));
+  document.getElementById('cs-prev').addEventListener('click', () => track.scrollBy({left: -step(), behavior: 'smooth'}));
+</script>
+
+</body>
+</html>
