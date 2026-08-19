@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unsticking a Stalled $100M Transformation — Karina McGill</title>
+<title>The Champions Who Caught What Testing Couldn't — Karina McGill</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -60,17 +60,7 @@
     border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:var(--muted)}
   .pill b{color:var(--ink);font-weight:700}
 
-  /* ==================================================================
-     REUSABLE MEDIA COMPONENTS — every case study page should use these
-     same classes so the series feels consistent. Three shapes:
-       .media.landscape  — wide screenshots, service blueprints, Gantt charts
-       .media.portrait   — tall diagrams, decision trees, process flows
-       .media-grid        — two .media items side by side (before/after, etc.)
-     Each <img> has an onerror fallback so a page never looks "broken"
-     before a real image exists — it shows a labeled placeholder tile
-     instead. Swap in a real src and the fallback simply stops firing;
-     no other markup changes needed. Always pair with a .media-caption.
-     ================================================================== */
+  /* ---------- MEDIA COMPONENTS ---------- */
   .media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--hair)}
   .media img{width:100%;height:100%;object-fit:cover;display:block}
   .media.landscape{aspect-ratio:16/9;width:100%}
@@ -87,11 +77,7 @@
   .media-block{margin:34px 0}
   .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0;align-items:start}
 
-  /* ==================================================================
-     CALLOUT — a highlighted aside within the article flow. Use for
-     definitions, context notes, or a pulled-out insight that isn't a
-     testimonial quote (use .pull-quote for that instead).
-     ================================================================== */
+  /* ---------- CALLOUT ---------- */
   .callout{display:flex;gap:16px;background:var(--card);border-left:3px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
     padding:22px 26px;margin:30px 0}
   .callout.orange{border-left-color:var(--orange)}
@@ -109,7 +95,6 @@
   .section p:last-child{margin-bottom:0}
   .section p strong{color:var(--ink);font-weight:600}
 
-  /* artifact cards */
   .artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
   .artifact-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r);padding:26px}
   .artifact-card .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;
@@ -119,13 +104,16 @@
   .artifact-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px}
   .artifact-card p{font-size:14px;color:var(--muted);margin:0;max-width:none}
 
-  /* pull quote — dramatic testimonial, dark band */
   .pull-quote{background:var(--ink);color:var(--cream);border-radius:var(--r);padding:44px 48px}
   .pull-quote .mark{font-size:48px;font-weight:700;color:var(--orange);line-height:.6;display:block;margin-bottom:8px}
   .pull-quote blockquote{font-size:clamp(19px,2.2vw,25px);font-weight:500;line-height:1.45;max-width:680px}
   .pull-quote cite{display:block;font-style:normal;font-size:14px;color:rgba(248,245,238,.6);margin-top:16px}
 
-  /* outcome stats */
+  /* smaller secondary quote, used for a second voice in the same story */
+  .mini-quote{border-left:3px solid var(--orange);padding:6px 0 6px 24px;margin:30px 0}
+  .mini-quote p{font-size:19px;font-weight:500;color:var(--ink);line-height:1.5;font-style:italic}
+  .mini-quote cite{display:block;font-style:normal;font-size:13.5px;color:var(--muted);margin-top:10px}
+
   .outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
   .outcome-stat{border-top:2px solid var(--ink);padding-top:16px}
   .outcome-stat .n{font-size:clamp(30px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;display:block}
@@ -187,10 +175,10 @@
   </div>
   <div class="container">
     <span class="where">Kroger · Manufacturing · Project MAKE</span>
-    <h1>Unsticking a stalled $100M transformation</h1>
-    <p class="dek">Two months into an ERP modernization spanning 32 manufacturing facilities, the program was stuck in
-      circles — competing priorities, undefined scope, no agreement on who owned what data. A weeklong alignment
-      workshop turned that stalemate into the plan that carried the program to go-live.</p>
+    <h1>The champions who caught what testing couldn't</h1>
+    <p class="dek">As Project MAKE approached go-live, the most tenured plant associates resisted the new system
+      more than new hires did — the opposite of what the team expected. A listening session revealed why, and a
+      peer-led "champions" network built on that insight carried the rollout to zero plant downtime.</p>
 
     <div class="meta-row">
       <div class="meta-item">
@@ -203,35 +191,34 @@
       </div>
       <div class="meta-item">
         <div class="label">Team</div>
-        <div class="val">Systems integrators, contract engineers, business SMEs, Kroger product/design/engineering, executive sponsors</div>
+        <div class="val">Tenured plant associates, training &amp; testing teams, plant leadership</div>
       </div>
       <div class="meta-item">
         <div class="label">Focus</div>
-        <div class="val">Process mapping &amp; cross-functional alignment</div>
+        <div class="val">Change management &amp; peer-led adoption</div>
       </div>
     </div>
 
     <div class="metric-strip">
-      <span class="pill"><b>$100M+</b> modernization</span>
-      <span class="pill"><b>32</b> manufacturing facilities</span>
-      <span class="pill"><b>5,000+</b> frontline associates</span>
+      <span class="pill"><b>0</b> plant downtime at go-live</span>
+      <span class="pill"><b>32</b> facilities</span>
+      <span class="pill">Peer-led champion network</span>
     </div>
   </div>
 </header>
 
-<!-- KEY IMAGE — the one hero visual for the whole case study. Landscape, full container width. -->
 <div class="container">
   <div class="media-block">
     <div class="media landscape">
-      <img src="../assets/case-studies/project-make-alignment/key-image.jpg" alt=""
+      <img src="../assets/case-studies/project-make-go-live/key-image.jpg" alt=""
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="media-fallback">
         <div class="orbit o1"></div><div class="orbit o2"></div>
         <span class="tag">Key image</span>
-        <span class="desc">Photo or diagram representing the workshop — e.g. the workshop room, the finished service blueprint wall, or a title slide</span>
+        <span class="desc">Photo or diagram representing the champions program — e.g. a plant floor during testing, or the champion network structure</span>
       </div>
     </div>
-    <p class="media-caption">The alignment workshop in progress — mapping every critical workpath before the team could agree on a plan.</p>
+    <p class="media-caption">Tenured associates weren't afraid of learning something new — they were afraid of losing standing they'd built over a career.</p>
   </div>
 </div>
 
@@ -240,136 +227,102 @@
 
     <section class="section">
       <h2>The problem</h2>
-      <p>Project MAKE was a $100M+ effort to move 32 grocery, dairy, and bakery manufacturing facilities onto a
-        modern, data- and AI-enabled operating model — with no inherited documentation, process, or roadmap to
-        build from. Two months in, the program was stuck. The room spanned systems integrators, contract engineers,
-        business stakeholders and SMEs, Kroger product, design, and engineering, plus executives who wanted firm
-        dates. Priorities were competing across every user group, the scope of technical development was still
-        undefined, and nobody had agreed on who owned what data.</p>
-      <p>Two months of iteration in, there still wasn't a cohesive plan for delivering the ERP to the first plant.
-        Meetings kept surfacing the same disagreements without resolving them — the program had all the ingredients
-        of a transformation and none of the alignment to move it forward.</p>
+      <p>During Project MAKE, tenured plant associates resisted the new ERP system more than new hires did —
+        counterintuitive, given how disliked the legacy system already was. The pattern showed up across multiple
+        facilities, and it didn't fit the usual explanation of "resistance to change" for its own sake.</p>
+      <p>A listening session with a 20-year plant associate reframed the entire problem (see her words below). She
+        wasn't afraid of learning something new — she was afraid of losing the standing she'd built over a career.
+        The same pattern repeated across interviews: expertise on the floor lived in knowing "the right person to
+        talk to," and a well-designed system risked erasing that identity entirely.</p>
 
       <div class="callout">
-        <span class="icon">⚠️</span>
+        <span class="icon">💬</span>
         <div>
           <div class="label">Why this stalled</div>
-          <p>No single artifact existed yet that every function — engineering, SMEs, systems integrators, and
-            executives — had actually agreed to. Everyone was solving a slightly different version of the problem.</p>
+          <p>A top-down training rollout would have solved the wrong problem. The resistance wasn't about
+            capability — it was about status, and no amount of better documentation was going to fix that.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="mini-quote">
+        <p>"I take pride in knowing the system. I'm the go-to person when people have questions. If you take away
+          the old system, I'm on the same level as someone who just walked off the street."</p>
+        <cite>— A 20-year plant associate, in a pre-go-live listening session</cite>
       </div>
     </section>
 
     <section class="section">
       <h2>What I did</h2>
-      <p>I led a weeklong alignment workshop built to force the decisions everyone had been avoiding. Rather than
-        another status meeting, the goal was to put every open question on the table at once, in a shared visual
-        format nobody could talk around.</p>
+      <p>The response was a peer-led model, not a top-down one: embed a small team of tenured "MAKE Champions"
+        directly with the project through testing, training, and go-live — advocating for the new system in terms
+        that resonated with their peers, not the language executives would use.</p>
 
       <div class="artifact-grid">
         <div class="artifact-card">
           <span class="num">1</span>
-          <h3>End-to-end service blueprint</h3>
-          <p>Mapped every critical workpath across the transformation, identifying user groups, data owners, and
-            exactly where data migration would break if left unresolved.</p>
+          <h3>Listening sessions</h3>
+          <p>Surfaced the real, identity-driven reason behind frontline resistance — not assumed, not guessed, but
+            heard directly from the associates living it.</p>
         </div>
         <div class="artifact-card">
           <span class="num">2</span>
-          <h3>RAID log</h3>
-          <p>Surfaced risks, assumptions, issues, and dependencies that had been discussed informally for weeks but
-            never written down where the whole room could see them together.</p>
+          <h3>Peer-led champion network</h3>
+          <p>Recruited tenured associates whose floor credibility couldn't be replicated by a manager or a training
+            deck, and gave them a real role in the rollout.</p>
         </div>
         <div class="artifact-card">
           <span class="num">3</span>
-          <h3>Roadmap &amp; milestone Gantt chart</h3>
-          <p>Tied the blueprint and RAID log to real dates — sequencing, dependencies, and the milestones the
-            business needed to hit, made concrete instead of aspirational.</p>
+          <h3>Embedded through go-live</h3>
+          <p>Champions stayed with the project through testing, training, and go-live itself — not a one-time
+            kickoff session, but sustained presence at every stage that mattered.</p>
         </div>
       </div>
 
-      <!-- WIDE DIAGRAM — e.g. a screenshot of the actual service blueprint or Gantt chart. Landscape shape suits
-           most process diagrams, roadmaps, and screenshots. -->
-      <div class="media-block">
-        <div class="media landscape">
-          <img src="../assets/case-studies/project-make-alignment/service-blueprint.jpg" alt=""
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="media-fallback">
-            <div class="orbit o1"></div><div class="orbit o2"></div>
-            <span class="tag">Diagram · landscape</span>
-            <span class="desc">Service blueprint or roadmap screenshot — wide diagrams like this work best full-width</span>
-          </div>
-        </div>
-        <p class="media-caption">An excerpt of the service blueprint mapping data ownership across every workpath.</p>
-      </div>
-
-      <!-- TWO-UP GRID — pairs a vertical diagram with a callout, or two images side by side (before/after, etc.) -->
-      <div class="media-grid">
-        <div class="media portrait">
-          <img src="../assets/case-studies/project-make-alignment/raid-log-detail.jpg" alt=""
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="media-fallback">
-            <div class="orbit o1"></div><div class="orbit o2"></div>
-            <span class="tag">Diagram · portrait</span>
-            <span class="desc">Tall diagram — e.g. a decision tree, org chart, or a vertical excerpt of the RAID log</span>
-          </div>
-        </div>
-        <div class="callout orange" style="margin:0;align-self:center">
-          <span class="icon">💡</span>
-          <div>
-            <div class="label">What's a RAID log?</div>
-            <p>Risks, Assumptions, Issues, and Dependencies — a single running document that keeps everything that
-              could derail a program visible in one place, instead of scattered across meeting notes.</p>
-          </div>
-        </div>
-      </div>
-
-      <p style="margin-top:8px">Laying all three artifacts out together made the trade-offs impossible to avoid:
-        which workflows had to be sequenced first, whose data-ownership questions were blocking engineering, where
-        scope had to flex to hit a date that mattered to the business. The room stopped debating in the abstract and
-        started making calls.</p>
+      <p style="margin-top:8px">The champions weren't a communications layer bolted on top of the rollout — they
+        were inside it. Because they were testing and training alongside the project team, they caught real errors
+        before those errors ever reached a live plant floor.</p>
     </section>
 
     <section class="section">
       <div class="pull-quote">
         <span class="mark">&ldquo;</span>
-        <blockquote>This was the day the project really started. We've just been talking in circles. Now we're on
-          the same page.</blockquote>
-        <cite>— Project sponsor, at the close of the alignment workshop</cite>
+        <blockquote>We feel like someone is finally listening to us.</blockquote>
+        <cite>— A plant associate, after go-live</cite>
       </div>
     </section>
 
     <section class="section">
       <h2>Outcome</h2>
-      <p>That workshop became the catalyst for the rest of the program — the blueprint, roadmap, and RAID log built
-        that week were the foundation everything downstream got built on. With the plan finally shared and
-        concrete, the team that carried it forward through testing, training, and go-live delivered the rollout
-        with <strong>zero plant downtime</strong>.</p>
+      <p>The champions caught errors before they hit production, and the rollout went live across the program with
+        <strong>zero plant downtime</strong>. Just as important, the champions model shifted how the floor felt
+        about the whole project — not something done to them, but something they'd had a real hand in shaping.</p>
 
       <div class="outcome-grid">
         <div class="outcome-stat">
-          <span class="n">1 week</span>
-          <span class="l">to turn two months of circling into a shared plan</span>
-        </div>
-        <div class="outcome-stat">
-          <span class="n">3 artifacts</span>
-          <span class="l">blueprint, RAID log, and roadmap — reused for the rest of the program</span>
-        </div>
-        <div class="outcome-stat">
           <span class="n">0</span>
           <span class="l">plant downtime at go-live</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="n">Peer-led</span>
+          <span class="l">champion network, not a top-down training rollout</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="n">Caught pre-launch</span>
+          <span class="l">errors identified and fixed before they reached a live plant floor</span>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>What's next in this series</h2>
-      <p>Project MAKE generated enough material for more than one case study. This one covers the process-mapping
-        and alignment work that got the program moving. The
+      <p>This case study covers the change-management work that carried Project MAKE to a zero-downtime go-live.
+        The <a href="project-make-alignment.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">alignment workshop</a>
+        that got the program moving and the
         <a href="project-make-discovery.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">discovery work</a>
-        behind the 100+ workflows we mapped facility by facility, and the
-        <a href="project-make-go-live.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">change-management work</a>
-        that carried the plan through to that zero-downtime go-live, are their own case studies. A mobility hardware
-        rollout — Android handhelds and scanners tested on the plant floor before deployment — is still to come.</p>
+        behind the 100+ workflows we mapped are their own case studies. A mobility hardware rollout — Android
+        handhelds and scanners tested on the plant floor before deployment — is still to come.</p>
     </section>
 
   </div>

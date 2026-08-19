@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unsticking a Stalled $100M Transformation — Karina McGill</title>
+<title>Training That Shows Up When You Need It — Karina McGill</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -60,17 +60,7 @@
     border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:var(--muted)}
   .pill b{color:var(--ink);font-weight:700}
 
-  /* ==================================================================
-     REUSABLE MEDIA COMPONENTS — every case study page should use these
-     same classes so the series feels consistent. Three shapes:
-       .media.landscape  — wide screenshots, service blueprints, Gantt charts
-       .media.portrait   — tall diagrams, decision trees, process flows
-       .media-grid        — two .media items side by side (before/after, etc.)
-     Each <img> has an onerror fallback so a page never looks "broken"
-     before a real image exists — it shows a labeled placeholder tile
-     instead. Swap in a real src and the fallback simply stops firing;
-     no other markup changes needed. Always pair with a .media-caption.
-     ================================================================== */
+  /* ---------- MEDIA COMPONENTS ---------- */
   .media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--hair)}
   .media img{width:100%;height:100%;object-fit:cover;display:block}
   .media.landscape{aspect-ratio:16/9;width:100%}
@@ -87,11 +77,7 @@
   .media-block{margin:34px 0}
   .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0;align-items:start}
 
-  /* ==================================================================
-     CALLOUT — a highlighted aside within the article flow. Use for
-     definitions, context notes, or a pulled-out insight that isn't a
-     testimonial quote (use .pull-quote for that instead).
-     ================================================================== */
+  /* ---------- CALLOUT ---------- */
   .callout{display:flex;gap:16px;background:var(--card);border-left:3px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
     padding:22px 26px;margin:30px 0}
   .callout.orange{border-left-color:var(--orange)}
@@ -109,7 +95,6 @@
   .section p:last-child{margin-bottom:0}
   .section p strong{color:var(--ink);font-weight:600}
 
-  /* artifact cards */
   .artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
   .artifact-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r);padding:26px}
   .artifact-card .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;
@@ -119,13 +104,11 @@
   .artifact-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px}
   .artifact-card p{font-size:14px;color:var(--muted);margin:0;max-width:none}
 
-  /* pull quote — dramatic testimonial, dark band */
   .pull-quote{background:var(--ink);color:var(--cream);border-radius:var(--r);padding:44px 48px}
   .pull-quote .mark{font-size:48px;font-weight:700;color:var(--orange);line-height:.6;display:block;margin-bottom:8px}
   .pull-quote blockquote{font-size:clamp(19px,2.2vw,25px);font-weight:500;line-height:1.45;max-width:680px}
   .pull-quote cite{display:block;font-style:normal;font-size:14px;color:rgba(248,245,238,.6);margin-top:16px}
 
-  /* outcome stats */
   .outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
   .outcome-stat{border-top:2px solid var(--ink);padding-top:16px}
   .outcome-stat .n{font-size:clamp(30px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;display:block}
@@ -186,52 +169,52 @@
     <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
   </div>
   <div class="container">
-    <span class="where">Kroger · Manufacturing · Project MAKE</span>
-    <h1>Unsticking a stalled $100M transformation</h1>
-    <p class="dek">Two months into an ERP modernization spanning 32 manufacturing facilities, the program was stuck in
-      circles — competing priorities, undefined scope, no agreement on who owned what data. A weeklong alignment
-      workshop turned that stalemate into the plan that carried the program to go-live.</p>
+    <span class="where">Kroger · Retail · Associate Experience &amp; HR Modernization</span>
+    <h1>Training that shows up when you need it</h1>
+    <p class="dek">New retail associates had one day to learn to manage inventory on an Android handheld, and
+      roughly a quarter of help-desk tickets for that device traced back to gaps basic training should have
+      covered. The objectives were clear — cut onboarding cost, cut tickets. Where the actual failure point lived
+      was not.</p>
 
     <div class="meta-row">
       <div class="meta-item">
         <div class="label">Role</div>
-        <div class="val">Sr. Manager, Product &amp; Program Management</div>
+        <div class="val">Senior Product Manager</div>
       </div>
       <div class="meta-item">
         <div class="label">Timeline</div>
-        <div class="val">Project MAKE · 2022&ndash;2025</div>
+        <div class="val">Oct 2018 &ndash; Dec 2021</div>
       </div>
       <div class="meta-item">
         <div class="label">Team</div>
-        <div class="val">Systems integrators, contract engineers, business SMEs, Kroger product/design/engineering, executive sponsors</div>
+        <div class="val">Design, engineering, help desk, training managers</div>
       </div>
       <div class="meta-item">
         <div class="label">Focus</div>
-        <div class="val">Process mapping &amp; cross-functional alignment</div>
+        <div class="val">Embedded microtraining &amp; measurable ticket reduction</div>
       </div>
     </div>
 
     <div class="metric-strip">
-      <span class="pill"><b>$100M+</b> modernization</span>
-      <span class="pill"><b>32</b> manufacturing facilities</span>
-      <span class="pill"><b>5,000+</b> frontline associates</span>
+      <span class="pill"><b>300,000</b> associates reached</span>
+      <span class="pill"><b>28%</b> of tickets tied to training gaps</span>
+      <span class="pill"><b>&minus;25%</b> tickets, Q1</span>
     </div>
   </div>
 </header>
 
-<!-- KEY IMAGE — the one hero visual for the whole case study. Landscape, full container width. -->
 <div class="container">
   <div class="media-block">
     <div class="media landscape">
-      <img src="../assets/case-studies/project-make-alignment/key-image.jpg" alt=""
+      <img src="../assets/case-studies/in-app-learning/key-image.jpg" alt=""
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="media-fallback">
         <div class="orbit o1"></div><div class="orbit o2"></div>
         <span class="tag">Key image</span>
-        <span class="desc">Photo or diagram representing the workshop — e.g. the workshop room, the finished service blueprint wall, or a title slide</span>
+        <span class="desc">Photo or screenshot representing the in-app training layer — e.g. an associate using the handheld device, or a microtraining prompt in context</span>
       </div>
     </div>
-    <p class="media-caption">The alignment workshop in progress — mapping every critical workpath before the team could agree on a plan.</p>
+    <p class="media-caption">An embedded, in-app training layer — built to reach associates at the exact moment they hit a problem, not before.</p>
   </div>
 </div>
 
@@ -240,136 +223,108 @@
 
     <section class="section">
       <h2>The problem</h2>
-      <p>Project MAKE was a $100M+ effort to move 32 grocery, dairy, and bakery manufacturing facilities onto a
-        modern, data- and AI-enabled operating model — with no inherited documentation, process, or roadmap to
-        build from. Two months in, the program was stuck. The room spanned systems integrators, contract engineers,
-        business stakeholders and SMEs, Kroger product, design, and engineering, plus executives who wanted firm
-        dates. Priorities were competing across every user group, the scope of technical development was still
-        undefined, and nobody had agreed on who owned what data.</p>
-      <p>Two months of iteration in, there still wasn't a cohesive plan for delivering the ERP to the first plant.
-        Meetings kept surfacing the same disagreements without resolving them — the program had all the ingredients
-        of a transformation and none of the alignment to move it forward.</p>
+      <p>The objectives were clear: reduce the cost of new-associate onboarding and cut help-desk tickets tied to
+        training gaps. What was ambiguous was everything underneath that. New retail associates had one day to
+        learn to manage inventory on an Android handheld device. Training time was limited and often incomplete.
+        Roughly 28% of help-desk tickets for that device and app traced back to issues basic training should have
+        already covered — but nobody had defined where the real failure point was, or what to build to fix it.</p>
 
       <div class="callout">
-        <span class="icon">⚠️</span>
+        <span class="icon">🔍</span>
         <div>
-          <div class="label">Why this stalled</div>
-          <p>No single artifact existed yet that every function — engineering, SMEs, systems integrators, and
-            executives — had actually agreed to. Everyone was solving a slightly different version of the problem.</p>
+          <div class="label">Finding the real failure point</div>
+          <p>Analyzed help-desk tickets with Copilot to surface themes and sentiment, then interviewed new
+            associates, training managers, and the help-desk team — and did floor-level UX research watching
+            associates actually use the device, instead of guessing where an intervention would matter.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>What I did</h2>
-      <p>I led a weeklong alignment workshop built to force the decisions everyone had been avoiding. Rather than
-        another status meeting, the goal was to put every open question on the table at once, in a shared visual
-        format nobody could talk around.</p>
+      <p>That research shaped the metric: associates needed microtraining delivered at the moment they hit a
+        problem, not before, paired with a measurable drop in tickets. It also ruled out the obvious first answer —
+        revising onboarding curriculum — because interviews showed in-person training wasn't reliably delivered
+        store to store. An embedded, in-app layer was the only approach that could guarantee the same training
+        quality regardless of which store or trainer someone got.</p>
 
       <div class="artifact-grid">
         <div class="artifact-card">
           <span class="num">1</span>
-          <h3>End-to-end service blueprint</h3>
-          <p>Mapped every critical workpath across the transformation, identifying user groups, data owners, and
-            exactly where data migration would break if left unresolved.</p>
+          <h3>Ticket analysis</h3>
+          <p>Used Copilot to surface themes and sentiment across help-desk tickets, establishing the 28% baseline
+            tied to training gaps rather than guessing at the scale of the problem.</p>
         </div>
         <div class="artifact-card">
           <span class="num">2</span>
-          <h3>RAID log</h3>
-          <p>Surfaced risks, assumptions, issues, and dependencies that had been discussed informally for weeks but
-            never written down where the whole room could see them together.</p>
+          <h3>Interviews</h3>
+          <p>Talked to new associates, training managers, and the help-desk team to understand where training was
+            breaking down and why in-person delivery varied so widely.</p>
         </div>
         <div class="artifact-card">
           <span class="num">3</span>
-          <h3>Roadmap &amp; milestone Gantt chart</h3>
-          <p>Tied the blueprint and RAID log to real dates — sequencing, dependencies, and the milestones the
-            business needed to hit, made concrete instead of aspirational.</p>
+          <h3>Floor-level UX research</h3>
+          <p>Watched associates actually use the device on the floor, to find where a training or help intervention
+            would matter most instead of guessing.</p>
         </div>
       </div>
 
-      <!-- WIDE DIAGRAM — e.g. a screenshot of the actual service blueprint or Gantt chart. Landscape shape suits
-           most process diagrams, roadmaps, and screenshots. -->
-      <div class="media-block">
-        <div class="media landscape">
-          <img src="../assets/case-studies/project-make-alignment/service-blueprint.jpg" alt=""
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="media-fallback">
-            <div class="orbit o1"></div><div class="orbit o2"></div>
-            <span class="tag">Diagram · landscape</span>
-            <span class="desc">Service blueprint or roadmap screenshot — wide diagrams like this work best full-width</span>
-          </div>
-        </div>
-        <p class="media-caption">An excerpt of the service blueprint mapping data ownership across every workpath.</p>
-      </div>
-
-      <!-- TWO-UP GRID — pairs a vertical diagram with a callout, or two images side by side (before/after, etc.) -->
       <div class="media-grid">
         <div class="media portrait">
-          <img src="../assets/case-studies/project-make-alignment/raid-log-detail.jpg" alt=""
+          <img src="../assets/case-studies/in-app-learning/prototype-detail.jpg" alt=""
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
             <span class="tag">Diagram · portrait</span>
-            <span class="desc">Tall diagram — e.g. a decision tree, org chart, or a vertical excerpt of the RAID log</span>
+            <span class="desc">Tall screenshot — e.g. the microtraining prompt flow, or the device screen at the moment training triggers</span>
           </div>
         </div>
         <div class="callout orange" style="margin:0;align-self:center">
-          <span class="icon">💡</span>
+          <span class="icon">📱</span>
           <div>
-            <div class="label">What's a RAID log?</div>
-            <p>Risks, Assumptions, Issues, and Dependencies — a single running document that keeps everything that
-              could derail a program visible in one place, instead of scattered across meeting notes.</p>
+            <div class="label">Why in-app, not onboarding</div>
+            <p>In-person training wasn't guaranteed and varied significantly store to store. Improving a curriculum
+              that wasn't reliably delivered in the first place wouldn't have solved the problem — the training had
+              to live inside the workflow itself.</p>
           </div>
         </div>
       </div>
 
-      <p style="margin-top:8px">Laying all three artifacts out together made the trade-offs impossible to avoid:
-        which workflows had to be sequenced first, whose data-ownership questions were blocking engineering, where
-        scope had to flex to hit a date that mattered to the business. The room stopped debating in the abstract and
-        started making calls.</p>
+      <p style="margin-top:8px">The team prototyped an in-app training and support layer and tested it onsite with
+        store associates before building further — validating the approach against real behavior on the floor
+        rather than a conference-room assumption.</p>
     </section>
 
     <section class="section">
       <div class="pull-quote">
         <span class="mark">&ldquo;</span>
-        <blockquote>This was the day the project really started. We've just been talking in circles. Now we're on
-          the same page.</blockquote>
-        <cite>— Project sponsor, at the close of the alignment workshop</cite>
+        <blockquote>Formal training was removed from onboarding entirely — the in-app layer wasn't a supplement to
+          what wasn't working. It replaced it.</blockquote>
+        <cite>— Karina, on the outcome of the platform's first version</cite>
       </div>
     </section>
 
     <section class="section">
       <h2>Outcome</h2>
-      <p>That workshop became the catalyst for the rest of the program — the blueprint, roadmap, and RAID log built
-        that week were the foundation everything downstream got built on. With the plan finally shared and
-        concrete, the team that carried it forward through testing, training, and go-live delivered the rollout
-        with <strong>zero plant downtime</strong>.</p>
+      <p>The first version reached 300,000 retail associates and third-party vendors. Formal training was removed
+        from onboarding entirely, and help-desk tickets dropped 25% in the first quarter. The result also changed
+        how the business saw in-app learning: it led to a follow-on pilot of Axonify, a third-party AI-driven
+        microlearning platform, which Karina also owned.</p>
 
       <div class="outcome-grid">
         <div class="outcome-stat">
-          <span class="n">1 week</span>
-          <span class="l">to turn two months of circling into a shared plan</span>
+          <span class="n">300,000</span>
+          <span class="l">associates and third-party vendors reached in the first version</span>
         </div>
         <div class="outcome-stat">
-          <span class="n">3 artifacts</span>
-          <span class="l">blueprint, RAID log, and roadmap — reused for the rest of the program</span>
+          <span class="n">&minus;25%</span>
+          <span class="l">help-desk tickets in the first quarter after launch</span>
         </div>
         <div class="outcome-stat">
-          <span class="n">0</span>
-          <span class="l">plant downtime at go-live</span>
+          <span class="n">1 follow-on pilot</span>
+          <span class="l">Axonify, a third-party AI-driven microlearning platform, owned next</span>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>What's next in this series</h2>
-      <p>Project MAKE generated enough material for more than one case study. This one covers the process-mapping
-        and alignment work that got the program moving. The
-        <a href="project-make-discovery.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">discovery work</a>
-        behind the 100+ workflows we mapped facility by facility, and the
-        <a href="project-make-go-live.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">change-management work</a>
-        that carried the plan through to that zero-downtime go-live, are their own case studies. A mobility hardware
-        rollout — Android handhelds and scanners tested on the plant floor before deployment — is still to come.</p>
     </section>
 
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unsticking a Stalled $100M Transformation — Karina McGill</title>
+<title>Scaling Discovery to 100+ Interviews Without Breaking the Rules — Karina McGill</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -60,17 +60,7 @@
     border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:var(--muted)}
   .pill b{color:var(--ink);font-weight:700}
 
-  /* ==================================================================
-     REUSABLE MEDIA COMPONENTS — every case study page should use these
-     same classes so the series feels consistent. Three shapes:
-       .media.landscape  — wide screenshots, service blueprints, Gantt charts
-       .media.portrait   — tall diagrams, decision trees, process flows
-       .media-grid        — two .media items side by side (before/after, etc.)
-     Each <img> has an onerror fallback so a page never looks "broken"
-     before a real image exists — it shows a labeled placeholder tile
-     instead. Swap in a real src and the fallback simply stops firing;
-     no other markup changes needed. Always pair with a .media-caption.
-     ================================================================== */
+  /* ---------- MEDIA COMPONENTS ---------- */
   .media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--hair)}
   .media img{width:100%;height:100%;object-fit:cover;display:block}
   .media.landscape{aspect-ratio:16/9;width:100%}
@@ -87,11 +77,7 @@
   .media-block{margin:34px 0}
   .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0;align-items:start}
 
-  /* ==================================================================
-     CALLOUT — a highlighted aside within the article flow. Use for
-     definitions, context notes, or a pulled-out insight that isn't a
-     testimonial quote (use .pull-quote for that instead).
-     ================================================================== */
+  /* ---------- CALLOUT ---------- */
   .callout{display:flex;gap:16px;background:var(--card);border-left:3px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
     padding:22px 26px;margin:30px 0}
   .callout.orange{border-left-color:var(--orange)}
@@ -109,7 +95,6 @@
   .section p:last-child{margin-bottom:0}
   .section p strong{color:var(--ink);font-weight:600}
 
-  /* artifact cards */
   .artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
   .artifact-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r);padding:26px}
   .artifact-card .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;
@@ -119,13 +104,20 @@
   .artifact-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px}
   .artifact-card p{font-size:14px;color:var(--muted);margin:0;max-width:none}
 
-  /* pull quote — dramatic testimonial, dark band */
+  /* map-list — row-based structured comparison list (from the Kitchen ERP page) */
+  .map-list{border-top:2px solid var(--ink);margin-top:8px}
+  .map-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid var(--hair);flex-wrap:wrap}
+  .map-head{flex:1;min-width:260px}
+  .map-head h4{font-size:16.5px;font-weight:600;line-height:1.4}
+  .map-decision{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);white-space:nowrap}
+  .map-domain{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);white-space:nowrap}
+  .map-insight{flex-basis:100%;font-size:15px;color:var(--muted);line-height:1.65;margin-top:2px}
+
   .pull-quote{background:var(--ink);color:var(--cream);border-radius:var(--r);padding:44px 48px}
   .pull-quote .mark{font-size:48px;font-weight:700;color:var(--orange);line-height:.6;display:block;margin-bottom:8px}
   .pull-quote blockquote{font-size:clamp(19px,2.2vw,25px);font-weight:500;line-height:1.45;max-width:680px}
   .pull-quote cite{display:block;font-style:normal;font-size:14px;color:rgba(248,245,238,.6);margin-top:16px}
 
-  /* outcome stats */
   .outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
   .outcome-stat{border-top:2px solid var(--ink);padding-top:16px}
   .outcome-stat .n{font-size:clamp(30px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;display:block}
@@ -159,6 +151,7 @@
     .pull-quote{padding:32px 26px}
     .callout{padding:18px 20px;flex-direction:column;gap:6px}
     .orbits{opacity:.4}
+    .map-row{flex-direction:column;gap:6px}
   }
 </style>
 </head>
@@ -187,10 +180,11 @@
   </div>
   <div class="container">
     <span class="where">Kroger · Manufacturing · Project MAKE</span>
-    <h1>Unsticking a stalled $100M transformation</h1>
-    <p class="dek">Two months into an ERP modernization spanning 32 manufacturing facilities, the program was stuck in
-      circles — competing priorities, undefined scope, no agreement on who owned what data. A weeklong alignment
-      workshop turned that stalemate into the plan that carried the program to go-live.</p>
+    <h1>Scaling discovery to 100+ interviews without breaking the rules</h1>
+    <p class="dek">Project MAKE had no inherited documentation, process, or roadmap — every workflow across 32
+      manufacturing facilities had to be discovered from scratch. Manual discovery couldn't move fast enough, and
+      nothing outside Kroger's approved Microsoft 365 stack was on the table. So discovery had to be built twice:
+      once on the plant floor, and once as a self-built AI workflow to make it scale.</p>
 
     <div class="meta-row">
       <div class="meta-item">
@@ -203,35 +197,34 @@
       </div>
       <div class="meta-item">
         <div class="label">Team</div>
-        <div class="val">Systems integrators, contract engineers, business SMEs, Kroger product/design/engineering, executive sponsors</div>
+        <div class="val">Plant leadership, operators, 8 product teams, PMs</div>
       </div>
       <div class="meta-item">
         <div class="label">Focus</div>
-        <div class="val">Process mapping &amp; cross-functional alignment</div>
+        <div class="val">Field discovery &amp; AI-assisted synthesis at scale</div>
       </div>
     </div>
 
     <div class="metric-strip">
-      <span class="pill"><b>$100M+</b> modernization</span>
-      <span class="pill"><b>32</b> manufacturing facilities</span>
-      <span class="pill"><b>5,000+</b> frontline associates</span>
+      <span class="pill"><b>100+</b> workflows mapped</span>
+      <span class="pill"><b>100+</b> interviews in 2 weeks</span>
+      <span class="pill"><b>8</b> product teams</span>
     </div>
   </div>
 </header>
 
-<!-- KEY IMAGE — the one hero visual for the whole case study. Landscape, full container width. -->
 <div class="container">
   <div class="media-block">
     <div class="media landscape">
-      <img src="../assets/case-studies/project-make-alignment/key-image.jpg" alt=""
+      <img src="../assets/case-studies/project-make-discovery/key-image.jpg" alt=""
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="media-fallback">
         <div class="orbit o1"></div><div class="orbit o2"></div>
         <span class="tag">Key image</span>
-        <span class="desc">Photo or diagram representing the workshop — e.g. the workshop room, the finished service blueprint wall, or a title slide</span>
+        <span class="desc">Photo or diagram representing field discovery — e.g. plant-floor observation, an interview guide template, or the SharePoint synthesis repository</span>
       </div>
     </div>
-    <p class="media-caption">The alignment workshop in progress — mapping every critical workpath before the team could agree on a plan.</p>
+    <p class="media-caption">Discovery had to run on two tracks at once: hands-on field mapping, and a self-built workflow to synthesize it at scale.</p>
   </div>
 </div>
 
@@ -240,136 +233,129 @@
 
     <section class="section">
       <h2>The problem</h2>
-      <p>Project MAKE was a $100M+ effort to move 32 grocery, dairy, and bakery manufacturing facilities onto a
-        modern, data- and AI-enabled operating model — with no inherited documentation, process, or roadmap to
-        build from. Two months in, the program was stuck. The room spanned systems integrators, contract engineers,
-        business stakeholders and SMEs, Kroger product, design, and engineering, plus executives who wanted firm
-        dates. Priorities were competing across every user group, the scope of technical development was still
-        undefined, and nobody had agreed on who owned what data.</p>
-      <p>Two months of iteration in, there still wasn't a cohesive plan for delivering the ERP to the first plant.
-        Meetings kept surfacing the same disagreements without resolving them — the program had all the ingredients
-        of a transformation and none of the alignment to move it forward.</p>
+      <p>Project MAKE was moving 32 grocery, dairy, and bakery manufacturing facilities onto a modern, data- and
+        AI-enabled operating model — with no inherited documentation, process, or roadmap to build from. Every one
+        of the 100+ workflows that ran those plants had to be discovered before it could be redesigned, and the
+        stakes were high: nuanced, high-stakes requirements had to translate into decisions that scaled across
+        every facility, not just the one where they were captured.</p>
+      <p>Later in the program, discovery had to scale again — this time for product requirements, not workflows.
+        Eight product teams needed input from 100+ stakeholders, on a timeline that made a manual interview-and-synthesis
+        process untenable. And the constraint that shaped the solution wasn't capability, it was security: only
+        tools already approved for enterprise use, Microsoft 365, could be considered. Nothing outside that stack
+        was an option.</p>
 
       <div class="callout">
-        <span class="icon">⚠️</span>
+        <span class="icon">🔒</span>
         <div>
-          <div class="label">Why this stalled</div>
-          <p>No single artifact existed yet that every function — engineering, SMEs, systems integrators, and
-            executives — had actually agreed to. Everyone was solving a slightly different version of the problem.</p>
+          <div class="label">The constraint that shaped this</div>
+          <p>No outside AI tools, no new vendor approvals, no additional cost. Whatever got built had to run entirely
+            on Copilot, Teams, SharePoint, and Power Automate — tools Kroger had already sanctioned.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>What I did</h2>
-      <p>I led a weeklong alignment workshop built to force the decisions everyone had been avoiding. Rather than
-        another status meeting, the goal was to put every open question on the table at once, in a shared visual
-        format nobody could talk around.</p>
+      <p>Discovery ran on two tracks. The first was entirely hands-on: personally mapping 100+ undocumented
+        workflows through direct field discovery — onsite observation, interviews, and workflow mapping with plant
+        leadership and operators, facility by facility. There was no shortcut for this part; it required being on
+        the floor.</p>
 
       <div class="artifact-grid">
         <div class="artifact-card">
           <span class="num">1</span>
-          <h3>End-to-end service blueprint</h3>
-          <p>Mapped every critical workpath across the transformation, identifying user groups, data owners, and
-            exactly where data migration would break if left unresolved.</p>
+          <h3>Direct field discovery</h3>
+          <p>Onsite observation and interviews with plant leadership and operators, mapping 100+ workflows facility
+            by facility with no inherited documentation to start from.</p>
         </div>
         <div class="artifact-card">
           <span class="num">2</span>
-          <h3>RAID log</h3>
-          <p>Surfaced risks, assumptions, issues, and dependencies that had been discussed informally for weeks but
-            never written down where the whole room could see them together.</p>
+          <h3>Self-built AI workflow</h3>
+          <p>An automation layer on Copilot, Teams, SharePoint, and Power Automate to run stakeholder discovery at a
+            scale manual synthesis couldn't support.</p>
         </div>
         <div class="artifact-card">
           <span class="num">3</span>
-          <h3>Roadmap &amp; milestone Gantt chart</h3>
-          <p>Tied the blueprint and RAID log to real dates — sequencing, dependencies, and the milestones the
-            business needed to hit, made concrete instead of aspirational.</p>
+          <h3>Centralized synthesis repository</h3>
+          <p>Thematic analysis across every transcript, routed and organized so product managers could pull findings
+            directly instead of waiting on a synthesis cycle.</p>
         </div>
       </div>
 
-      <!-- WIDE DIAGRAM — e.g. a screenshot of the actual service blueprint or Gantt chart. Landscape shape suits
-           most process diagrams, roadmaps, and screenshots. -->
-      <div class="media-block">
-        <div class="media landscape">
-          <img src="../assets/case-studies/project-make-alignment/service-blueprint.jpg" alt=""
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="media-fallback">
-            <div class="orbit o1"></div><div class="orbit o2"></div>
-            <span class="tag">Diagram · landscape</span>
-            <span class="desc">Service blueprint or roadmap screenshot — wide diagrams like this work best full-width</span>
-          </div>
-        </div>
-        <p class="media-caption">An excerpt of the service blueprint mapping data ownership across every workpath.</p>
-      </div>
+      <p style="margin-top:8px">The second track was the AI workflow, built to run 100+ stakeholder interviews
+        across 8 product teams in two weeks — with product requirements identified almost immediately after. Here's
+        how the pieces fit together:</p>
 
-      <!-- TWO-UP GRID — pairs a vertical diagram with a callout, or two images side by side (before/after, etc.) -->
-      <div class="media-grid">
-        <div class="media portrait">
-          <img src="../assets/case-studies/project-make-alignment/raid-log-detail.jpg" alt=""
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="media-fallback">
-            <div class="orbit o1"></div><div class="orbit o2"></div>
-            <span class="tag">Diagram · portrait</span>
-            <span class="desc">Tall diagram — e.g. a decision tree, org chart, or a vertical excerpt of the RAID log</span>
-          </div>
+      <div class="map-list">
+        <div class="map-row">
+          <div class="map-head"><h4>Interview guide creation</h4></div>
+          <span class="map-decision">Manual step replaced</span>
+          <span class="map-domain">Auto-generated per session</span>
+          <div class="map-insight">The workflow auto-generated interview guides for each session from a master interview list, instead of a PM assembling one by hand every time.</div>
         </div>
-        <div class="callout orange" style="margin:0;align-self:center">
-          <span class="icon">💡</span>
-          <div>
-            <div class="label">What's a RAID log?</div>
-            <p>Risks, Assumptions, Issues, and Dependencies — a single running document that keeps everything that
-              could derail a program visible in one place, instead of scattered across meeting notes.</p>
-          </div>
+        <div class="map-row">
+          <div class="map-head"><h4>Document creation &amp; naming</h4></div>
+          <span class="map-decision">Manual step replaced</span>
+          <span class="map-domain">Power Automate orchestration</span>
+          <div class="map-insight">Power Automate orchestrated document creation and enforced naming conventions automatically, so nothing got lost to an inconsistent file name.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-head"><h4>Transcript routing</h4></div>
+          <span class="map-decision">Manual step replaced</span>
+          <span class="map-domain">Routed to SharePoint by team</span>
+          <div class="map-insight">Transcripts were routed to the correct SharePoint folder by team automatically — no PM hunting for the right interview later.</div>
+        </div>
+        <div class="map-row">
+          <div class="map-head"><h4>Synthesis &amp; findings</h4></div>
+          <span class="map-decision">Manual step replaced</span>
+          <span class="map-domain">Thematic analysis, centralized repository</span>
+          <div class="map-insight">Thematic analysis ran across transcripts automatically and synthesized findings into a repository PMs could pull from directly, instead of waiting on a written report.</div>
         </div>
       </div>
-
-      <p style="margin-top:8px">Laying all three artifacts out together made the trade-offs impossible to avoid:
-        which workflows had to be sequenced first, whose data-ownership questions were blocking engineering, where
-        scope had to flex to hit a date that mattered to the business. The room stopped debating in the abstract and
-        started making calls.</p>
     </section>
 
     <section class="section">
       <div class="pull-quote">
         <span class="mark">&ldquo;</span>
-        <blockquote>This was the day the project really started. We've just been talking in circles. Now we're on
-          the same page.</blockquote>
-        <cite>— Project sponsor, at the close of the alignment workshop</cite>
+        <blockquote>The constraint that shaped this was security, not capability. I had to build that connective
+          layer myself, using tools that were already sanctioned.</blockquote>
+        <cite>— Karina, on why the AI workflow had to be self-built rather than bought</cite>
       </div>
     </section>
 
     <section class="section">
       <h2>Outcome</h2>
-      <p>That workshop became the catalyst for the rest of the program — the blueprint, roadmap, and RAID log built
-        that week were the foundation everything downstream got built on. With the plan finally shared and
-        concrete, the team that carried it forward through testing, training, and go-live delivered the rollout
-        with <strong>zero plant downtime</strong>.</p>
+      <p>Together, the two tracks turned a discovery problem with no starting material into a repeatable process:
+        field discovery gave the program its first real map of how the plants actually worked, and the AI workflow
+        gave product teams a way to gather and synthesize stakeholder input at a pace that matched the program's
+        timeline instead of lagging behind it. The bigger shift wasn't just speed — product managers got their time
+        back from administrative synthesis work and could focus on requirements that were both accurate and
+        identified fast enough to matter.</p>
 
       <div class="outcome-grid">
         <div class="outcome-stat">
-          <span class="n">1 week</span>
-          <span class="l">to turn two months of circling into a shared plan</span>
+          <span class="n">100+</span>
+          <span class="l">workflows mapped facility by facility, with no inherited documentation</span>
         </div>
         <div class="outcome-stat">
-          <span class="n">3 artifacts</span>
-          <span class="l">blueprint, RAID log, and roadmap — reused for the rest of the program</span>
+          <span class="n">2 weeks</span>
+          <span class="l">to run 100+ interviews across 8 product teams</span>
         </div>
         <div class="outcome-stat">
-          <span class="n">0</span>
-          <span class="l">plant downtime at go-live</span>
+          <span class="n">Weeks &rarr; days</span>
+          <span class="l">requirements-gathering timeline, cut with zero added cost or security approval</span>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>What's next in this series</h2>
-      <p>Project MAKE generated enough material for more than one case study. This one covers the process-mapping
-        and alignment work that got the program moving. The
-        <a href="project-make-discovery.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">discovery work</a>
-        behind the 100+ workflows we mapped facility by facility, and the
+      <p>This case study covers how Project MAKE built its discovery process from nothing, on the floor and in a
+        self-built AI workflow. The <a href="project-make-alignment.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">alignment workshop</a>
+        that turned that discovery work into a shared plan is its own case study, as is the
         <a href="project-make-go-live.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">change-management work</a>
-        that carried the plan through to that zero-downtime go-live, are their own case studies. A mobility hardware
-        rollout — Android handhelds and scanners tested on the plant floor before deployment — is still to come.</p>
+        that carried the plan through to a zero-downtime go-live. A mobility hardware rollout — Android handhelds
+        and scanners tested on the plant floor before deployment — is still to come.</p>
     </section>
 
   </div>
