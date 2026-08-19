@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unsticking a Stalled $100M Transformation — Karina McGill</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f171f; --cream:#f8f5ee; --orange:#f16935; --teal:#00b8a1;
+    --card:#efebe1; --hair:rgba(15,23,31,.14); --muted:rgba(15,23,31,.62); --r:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--cream);color:var(--ink);font-size:17px;line-height:1.6;overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:900px;margin:0 auto;padding:0 40px}
+  .wide{max-width:1180px;margin:0 auto;padding:0 40px}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15.5px;
+    padding:13px 24px;border-radius:999px;transition:transform .15s,box-shadow .15s,background .15s,color .15s;cursor:pointer}
+  .btn-primary{background:var(--orange);color:var(--cream);box-shadow:0 6px 0 rgba(15,23,31,.18)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-outline{border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+  .btn-outline:hover{background:var(--ink);color:var(--cream)}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+  .eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal)}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;height:76px;display:flex;align-items:center;justify-content:space-between;
+    padding:0 40px;background:rgba(248,245,238,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);z-index:10}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:18px}
+  .nav-links{display:flex;gap:34px;font-weight:500;font-size:15.5px}
+  .nav-links a{color:var(--muted);transition:color .15s}
+  .nav-links a:hover,.nav-links a.active{color:var(--ink)}
+
+  /* ---------- BACK LINK ---------- */
+  .back-row{padding:32px 0 0}
+  .back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--muted);transition:color .15s}
+  .back-link:hover{color:var(--orange)}
+
+  /* ---------- HERO ---------- */
+  .cs-hero{padding:26px 0 46px;position:relative;overflow:hidden}
+  .orbits{position:absolute;right:-220px;top:-160px;width:560px;height:560px;pointer-events:none;z-index:0}
+  .orbit{position:absolute;border:1px solid var(--hair);border-radius:50%}
+  .o1{inset:0}.o2{inset:70px;border-color:rgba(15,23,31,.10)}.o3{inset:150px;border-color:rgba(15,23,31,.08)}
+  .cs-hero .container{position:relative;z-index:1}
+  .where{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-top:18px;display:block}
+  h1{font-size:clamp(32px,4.4vw,50px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:14px 0 20px;max-width:820px}
+  .dek{font-size:clamp(17px,1.5vw,19.5px);color:var(--muted);max-width:680px;line-height:1.6}
+
+  .meta-row{display:flex;flex-wrap:wrap;gap:36px;margin-top:38px;padding-top:28px;border-top:1px solid var(--hair)}
+  .meta-item{min-width:160px}
+  .meta-item .label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .meta-item .val{font-size:15px;font-weight:600;line-height:1.4}
+
+  .metric-strip{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--hair);
+    border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:500;color:var(--muted)}
+  .pill b{color:var(--ink);font-weight:700}
+
+  /* ==================================================================
+     REUSABLE MEDIA COMPONENTS — every case study page should use these
+     same classes so the series feels consistent. Three shapes:
+       .media.landscape  — wide screenshots, service blueprints, Gantt charts
+       .media.portrait   — tall diagrams, decision trees, process flows
+       .media-grid        — two .media items side by side (before/after, etc.)
+     Each <img> has an onerror fallback so a page never looks "broken"
+     before a real image exists — it shows a labeled placeholder tile
+     instead. Swap in a real src and the fallback simply stops firing;
+     no other markup changes needed. Always pair with a .media-caption.
+     ================================================================== */
+  .media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--hair)}
+  .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .media.landscape{aspect-ratio:16/9;width:100%}
+  .media.portrait{aspect-ratio:3/4;width:100%;max-width:420px}
+  .media-fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;
+    gap:10px;background:linear-gradient(135deg,var(--ink),#1c2733);text-align:center;padding:24px;overflow:hidden}
+  .media-fallback .orbit{border-color:rgba(248,245,238,.18)}
+  .media-fallback .o1{inset:-40px}.media-fallback .o2{inset:10px;border-color:rgba(248,245,238,.14)}
+  .media-fallback .tag{position:relative;z-index:1;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--orange)}
+  .media-fallback .desc{position:relative;z-index:1;font-size:13.5px;font-weight:500;color:rgba(248,245,238,.82);max-width:280px}
+  .media-caption{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5}
+  .media-caption b{color:var(--ink);font-weight:600}
+  .media-block{margin:34px 0}
+  .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0;align-items:start}
+
+  /* ==================================================================
+     CALLOUT — a highlighted aside within the article flow. Use for
+     definitions, context notes, or a pulled-out insight that isn't a
+     testimonial quote (use .pull-quote for that instead).
+     ================================================================== */
+  .callout{display:flex;gap:16px;background:var(--card);border-left:3px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
+    padding:22px 26px;margin:30px 0}
+  .callout.orange{border-left-color:var(--orange)}
+  .callout .icon{font-size:20px;line-height:1;flex:none;margin-top:2px}
+  .callout .label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .callout.orange .label{color:var(--orange)}
+  .callout p{font-size:15px;color:var(--ink);opacity:.85;margin:0;max-width:none}
+
+  /* ---------- ARTICLE BODY ---------- */
+  article{padding:10px 0 20px}
+  .section{padding:52px 0}
+  .section + .section{border-top:1px solid var(--hair)}
+  .section h2{font-size:clamp(24px,2.6vw,30px);font-weight:700;letter-spacing:-.015em;margin-bottom:18px}
+  .section p{color:var(--muted);font-size:16.5px;line-height:1.75;margin-bottom:16px;max-width:760px}
+  .section p:last-child{margin-bottom:0}
+  .section p strong{color:var(--ink);font-weight:600}
+
+  /* artifact cards */
+  .artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+  .artifact-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r);padding:26px}
+  .artifact-card .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;
+    font-weight:700;font-size:14px;margin-bottom:16px;background:var(--ink);color:var(--cream)}
+  .artifact-card:nth-child(2) .num{background:var(--orange)}
+  .artifact-card:nth-child(3) .num{background:var(--teal)}
+  .artifact-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px}
+  .artifact-card p{font-size:14px;color:var(--muted);margin:0;max-width:none}
+
+  /* pull quote — dramatic testimonial, dark band */
+  .pull-quote{background:var(--ink);color:var(--cream);border-radius:var(--r);padding:44px 48px}
+  .pull-quote .mark{font-size:48px;font-weight:700;color:var(--orange);line-height:.6;display:block;margin-bottom:8px}
+  .pull-quote blockquote{font-size:clamp(19px,2.2vw,25px);font-weight:500;line-height:1.45;max-width:680px}
+  .pull-quote cite{display:block;font-style:normal;font-size:14px;color:rgba(248,245,238,.6);margin-top:16px}
+
+  /* outcome stats */
+  .outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+  .outcome-stat{border-top:2px solid var(--ink);padding-top:16px}
+  .outcome-stat .n{font-size:clamp(30px,3.4vw,40px);font-weight:700;letter-spacing:-.02em;display:block}
+  .outcome-stat .l{font-size:13.5px;color:var(--muted);margin-top:6px}
+
+  /* ---------- NEXT / ATOM+BITS BAND ---------- */
+  .next-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+    padding:36px 0;border-top:1px solid var(--hair)}
+  .next-row .btn-outline{white-space:nowrap}
+
+  .ab-band{background:var(--ink);color:var(--cream);position:relative;overflow:hidden;padding:76px 0}
+  .ab-band .orbits{right:-220px;top:-160px;opacity:.35}
+  .ab-band .orbit{border-color:rgba(248,245,238,.22)}
+  .ab-band .inner{position:relative;z-index:1;max-width:640px}
+  .ab-band .eyebrow{color:var(--orange)}
+  .ab-band h2{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.015em;margin:14px 0 16px}
+  .ab-band p{color:rgba(248,245,238,.72);margin-bottom:28px;font-size:16.5px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);padding:56px 0 30px}
+  footer .wide{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+  footer a{color:rgba(248,245,238,.72)}
+  footer a:hover{color:var(--cream)}
+
+  @media(max-width:900px){
+    .container,.wide{padding:0 24px}
+    nav{padding:0 24px}
+    .nav-links{display:none}
+    .artifact-grid,.outcome-grid{grid-template-columns:1fr}
+    .media-grid{grid-template-columns:1fr}
+    .pull-quote{padding:32px 26px}
+    .callout{padding:18px 20px;flex-direction:column;gap:6px}
+    .orbits{opacity:.4}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../index.html">
+    <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="4.2" fill="#f16935"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#0f171f" stroke-width="1.4" transform="rotate(28 13 13)"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#00b8a1" stroke-width="1.4" transform="rotate(-28 13 13)"/></svg>
+    Karina McGill
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a><a href="../about.html">About</a><a class="active" href="index.html">Case Studies</a><a href="../index.html#writing">Articles</a>
+  </div>
+  <a class="btn btn-primary" href="../index.html#contact">Work with me</a>
+</nav>
+
+<div class="back-row">
+  <div class="container">
+    <a class="back-link" href="index.html">&larr; All case studies</a>
+  </div>
+</div>
+
+<header class="cs-hero">
+  <div class="orbits">
+    <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+  </div>
+  <div class="container">
+    <span class="where">Kroger · Manufacturing · Project MAKE</span>
+    <h1>Unsticking a stalled $100M transformation</h1>
+    <p class="dek">Two months into an ERP modernization spanning 32 manufacturing facilities, the program was stuck in
+      circles — competing priorities, undefined scope, no agreement on who owned what data. A weeklong alignment
+      workshop turned that stalemate into the plan that carried the program to go-live.</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="label">Role</div>
+        <div class="val">Sr. Manager, Product &amp; Program Management</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Timeline</div>
+        <div class="val">Project MAKE · 2022&ndash;2025</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Team</div>
+        <div class="val">Systems integrators, contract engineers, business SMEs, Kroger product/design/engineering, executive sponsors</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Focus</div>
+        <div class="val">Process mapping &amp; cross-functional alignment</div>
+      </div>
+    </div>
+
+    <div class="metric-strip">
+      <span class="pill"><b>$100M+</b> modernization</span>
+      <span class="pill"><b>32</b> manufacturing facilities</span>
+      <span class="pill"><b>5,000+</b> frontline associates</span>
+    </div>
+  </div>
+</header>
+
+<!-- KEY IMAGE — the one hero visual for the whole case study. Landscape, full container width. -->
+<div class="container">
+  <div class="media-block">
+    <div class="media landscape">
+      <img src="../assets/case-studies/project-make-alignment/key-image.jpg" alt=""
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="media-fallback">
+        <div class="orbit o1"></div><div class="orbit o2"></div>
+        <span class="tag">Key image</span>
+        <span class="desc">Photo or diagram representing the workshop — e.g. the workshop room, the finished service blueprint wall, or a title slide</span>
+      </div>
+    </div>
+    <p class="media-caption">The alignment workshop in progress — mapping every critical workpath before the team could agree on a plan.</p>
+  </div>
+</div>
+
+<article>
+  <div class="container">
+
+    <section class="section">
+      <h2>The problem</h2>
+      <p>Project MAKE was a $100M+ effort to move 32 grocery, dairy, and bakery manufacturing facilities onto a
+        modern, data- and AI-enabled operating model — with no inherited documentation, process, or roadmap to
+        build from. Two months in, the program was stuck. The room spanned systems integrators, contract engineers,
+        business stakeholders and SMEs, Kroger product, design, and engineering, plus executives who wanted firm
+        dates. Priorities were competing across every user group, the scope of technical development was still
+        undefined, and nobody had agreed on who owned what data.</p>
+      <p>Two months of iteration in, there still wasn't a cohesive plan for delivering the ERP to the first plant.
+        Meetings kept surfacing the same disagreements without resolving them — the program had all the ingredients
+        of a transformation and none of the alignment to move it forward.</p>
+
+      <div class="callout">
+        <span class="icon">⚠️</span>
+        <div>
+          <div class="label">Why this stalled</div>
+          <p>No single artifact existed yet that every function — engineering, SMEs, systems integrators, and
+            executives — had actually agreed to. Everyone was solving a slightly different version of the problem.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What I did</h2>
+      <p>I led a weeklong alignment workshop built to force the decisions everyone had been avoiding. Rather than
+        another status meeting, the goal was to put every open question on the table at once, in a shared visual
+        format nobody could talk around.</p>
+
+      <div class="artifact-grid">
+        <div class="artifact-card">
+          <span class="num">1</span>
+          <h3>End-to-end service blueprint</h3>
+          <p>Mapped every critical workpath across the transformation, identifying user groups, data owners, and
+            exactly where data migration would break if left unresolved.</p>
+        </div>
+        <div class="artifact-card">
+          <span class="num">2</span>
+          <h3>RAID log</h3>
+          <p>Surfaced risks, assumptions, issues, and dependencies that had been discussed informally for weeks but
+            never written down where the whole room could see them together.</p>
+        </div>
+        <div class="artifact-card">
+          <span class="num">3</span>
+          <h3>Roadmap &amp; milestone Gantt chart</h3>
+          <p>Tied the blueprint and RAID log to real dates — sequencing, dependencies, and the milestones the
+            business needed to hit, made concrete instead of aspirational.</p>
+        </div>
+      </div>
+
+      <!-- WIDE DIAGRAM — e.g. a screenshot of the actual service blueprint or Gantt chart. Landscape shape suits
+           most process diagrams, roadmaps, and screenshots. -->
+      <div class="media-block">
+        <div class="media landscape">
+          <img src="../assets/case-studies/project-make-alignment/service-blueprint.jpg" alt=""
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Diagram · landscape</span>
+            <span class="desc">Service blueprint or roadmap screenshot — wide diagrams like this work best full-width</span>
+          </div>
+        </div>
+        <p class="media-caption">An excerpt of the service blueprint mapping data ownership across every workpath.</p>
+      </div>
+
+      <!-- TWO-UP GRID — pairs a vertical diagram with a callout, or two images side by side (before/after, etc.) -->
+      <div class="media-grid">
+        <div class="media portrait">
+          <img src="../assets/case-studies/project-make-alignment/raid-log-detail.jpg" alt=""
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Diagram · portrait</span>
+            <span class="desc">Tall diagram — e.g. a decision tree, org chart, or a vertical excerpt of the RAID log</span>
+          </div>
+        </div>
+        <div class="callout orange" style="margin:0;align-self:center">
+          <span class="icon">💡</span>
+          <div>
+            <div class="label">What's a RAID log?</div>
+            <p>Risks, Assumptions, Issues, and Dependencies — a single running document that keeps everything that
+              could derail a program visible in one place, instead of scattered across meeting notes.</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:8px">Laying all three artifacts out together made the trade-offs impossible to avoid:
+        which workflows had to be sequenced first, whose data-ownership questions were blocking engineering, where
+        scope had to flex to hit a date that mattered to the business. The room stopped debating in the abstract and
+        started making calls.</p>
+    </section>
+
+    <section class="section">
+      <div class="pull-quote">
+        <span class="mark">&ldquo;</span>
+        <blockquote>This was the day the project really started. We've just been talking in circles. Now we're on
+          the same page.</blockquote>
+        <cite>— Project sponsor, at the close of the alignment workshop</cite>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Outcome</h2>
+      <p>That workshop became the catalyst for the rest of the program — the blueprint, roadmap, and RAID log built
+        that week were the foundation everything downstream got built on. With the plan finally shared and
+        concrete, the team that carried it forward through testing, training, and go-live delivered the rollout
+        with <strong>zero plant downtime</strong>.</p>
+
+      <div class="outcome-grid">
+        <div class="outcome-stat">
+          <span class="n">1 week</span>
+          <span class="l">to turn two months of circling into a shared plan</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="n">3 artifacts</span>
+          <span class="l">blueprint, RAID log, and roadmap — reused for the rest of the program</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="n">0</span>
+          <span class="l">plant downtime at go-live</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What's next in this series</h2>
+      <p>Project MAKE generated enough material for more than one case study. This one covers the process-mapping
+        and alignment work that got the program moving; upcoming case studies will dig into the discovery interviews
+        behind the 100+ workflows we mapped facility by facility, the mobility hardware rollout (Android handhelds
+        and scanners tested on the plant floor before deployment), and the change-management work that carried the
+        plan through to that zero-downtime go-live.</p>
+    </section>
+
+  </div>
+</article>
+
+<div class="wide">
+  <div class="next-row">
+    <a class="back-link" href="index.html">&larr; All case studies</a>
+    <a class="btn btn-outline" href="index.html">See more work &rarr;</a>
+  </div>
+</div>
+
+<section class="ab-band">
+  <div class="orbits">
+    <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+  </div>
+  <div class="wide">
+    <div class="inner">
+      <span class="eyebrow">Atom + Bits</span>
+      <h2>In the middle of a transformation right now?</h2>
+      <p>Atom + Bits is my consultancy for the messy middle between operational reality and digital transformation. Let's talk about what you're navigating.</p>
+      <a class="btn btn-primary" href="../index.html#contact">Start a conversation &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wide">
+    <span>&copy; 2026 Karina McGill · Atom + Bits LLC</span>
+    <a href="../index.html#contact">karina.mcgill@gmail.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
