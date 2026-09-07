@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unsticking a Stalled $100M Transformation — Karina McGill</title>
+<title>Paper Processes to AI-Driven: $100M ERP Transformation — Karina McGill</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -61,15 +61,7 @@
   .pill b{color:var(--ink);font-weight:700}
 
   /* ==================================================================
-     REUSABLE MEDIA COMPONENTS — every case study page should use these
-     same classes so the series feels consistent. Three shapes:
-       .media.landscape  — wide screenshots, service blueprints, Gantt charts
-       .media.portrait   — tall diagrams, decision trees, process flows
-       .media-grid        — two .media items side by side (before/after, etc.)
-     Each <img> has an onerror fallback so a page never looks "broken"
-     before a real image exists — it shows a labeled placeholder tile
-     instead. Swap in a real src and the fallback simply stops firing;
-     no other markup changes needed. Always pair with a .media-caption.
+     REUSABLE MEDIA COMPONENTS
      ================================================================== */
   .media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--card);border:1px solid var(--hair)}
   .media img{width:100%;height:100%;object-fit:cover;display:block}
@@ -86,11 +78,11 @@
   .media-caption b{color:var(--ink);font-weight:600}
   .media-block{margin:34px 0}
   .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:34px 0;align-items:start}
+  .media.full{aspect-ratio:auto;width:100%}
+  .media.full img{height:auto;object-fit:contain}
 
   /* ==================================================================
-     CALLOUT — a highlighted aside within the article flow. Use for
-     definitions, context notes, or a pulled-out insight that isn't a
-     testimonial quote (use .pull-quote for that instead).
+     CALLOUT
      ================================================================== */
   .callout{display:flex;gap:16px;background:var(--card);border-left:3px solid var(--teal);border-radius:0 var(--r) var(--r) 0;
     padding:22px 26px;margin:30px 0}
@@ -108,18 +100,21 @@
   .section p{color:var(--muted);font-size:16.5px;line-height:1.75;margin-bottom:16px;max-width:760px}
   .section p:last-child{margin-bottom:0}
   .section p strong{color:var(--ink);font-weight:600}
+  .section ul.list{margin:0 0 16px 0;padding-left:22px;color:var(--muted);font-size:16.5px;line-height:1.75;max-width:760px}
+  .section ul.list li{margin-bottom:4px}
 
-  /* artifact cards */
-  .artifact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+  /* artifact cards — 4 cards, 2x2 grid (this page has 4 artifacts, not the usual 3) */
+  .artifact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
   .artifact-card{background:var(--card);border:1px solid var(--hair);border-radius:var(--r);padding:26px}
   .artifact-card .num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;
     font-weight:700;font-size:14px;margin-bottom:16px;background:var(--ink);color:var(--cream)}
   .artifact-card:nth-child(2) .num{background:var(--orange)}
   .artifact-card:nth-child(3) .num{background:var(--teal)}
+  .artifact-card:nth-child(4) .num{background:var(--ink)}
   .artifact-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px}
   .artifact-card p{font-size:14px;color:var(--muted);margin:0;max-width:none}
 
-  /* pull quote — dramatic testimonial, dark band */
+  /* pull quote */
   .pull-quote{background:var(--ink);color:var(--cream);border-radius:var(--r);padding:44px 48px}
   .pull-quote .mark{font-size:48px;font-weight:700;color:var(--orange);line-height:.6;display:block;margin-bottom:8px}
   .pull-quote blockquote{font-size:clamp(19px,2.2vw,25px);font-weight:500;line-height:1.45;max-width:680px}
@@ -166,7 +161,7 @@
 
 <nav>
   <a class="logo" href="../index.html">
-    <svg width="26" height="26" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="72" height="72" rx="16" fill="#00B8A1"/><circle cx="36" cy="36" r="24" fill="#0F171F"/><path d="M22.752 41L25.328 31.2H28.548L31.124 41H29.22L28.688 38.844H25.188L24.656 41H22.752ZM25.622 37.136H28.254L27.064 32.362H26.812L25.622 37.136ZM34.887 39.026V36.898H32.787V35.302H34.887V33.174H36.539V35.302H38.639V36.898H36.539V39.026H34.887ZM40.6987 41V39.376H41.9867V32.824H40.6987V31.2H45.7387C46.336 31.2 46.854 31.3027 47.2927 31.508C47.7407 31.704 48.086 31.9887 48.3287 32.362C48.5807 32.726 48.7067 33.1647 48.7067 33.678V33.818C48.7067 34.266 48.6227 34.6347 48.4547 34.924C48.2867 35.204 48.086 35.4233 47.8527 35.582C47.6287 35.7313 47.414 35.8387 47.2087 35.904V36.156C47.414 36.212 47.638 36.3193 47.8807 36.478C48.1234 36.6273 48.3287 36.8467 48.4967 37.136C48.674 37.4253 48.7627 37.8033 48.7627 38.27V38.41C48.7627 38.9513 48.6367 39.418 48.3847 39.81C48.1327 40.1927 47.7827 40.4867 47.3347 40.692C46.896 40.8973 46.3827 41 45.7947 41H40.6987ZM43.8347 39.32H45.5707C45.972 39.32 46.294 39.222 46.5367 39.026C46.7887 38.83 46.9147 38.55 46.9147 38.186V38.046C46.9147 37.682 46.7934 37.402 46.5507 37.206C46.308 37.01 45.9814 36.912 45.5707 36.912H43.8347V39.32ZM43.8347 35.232H45.5427C45.9254 35.232 46.238 35.134 46.4807 34.938C46.7327 34.742 46.8587 34.4713 46.8587 34.126V33.986C46.8587 33.6313 46.7374 33.3607 46.4947 33.174C46.252 32.978 45.9347 32.88 45.5427 32.88H43.8347V35.232Z" fill="#F8F5EE"/></svg>
+    <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="4.2" fill="#f16935"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#0f171f" stroke-width="1.4" transform="rotate(28 13 13)"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#00b8a1" stroke-width="1.4" transform="rotate(-28 13 13)"/></svg>
     Karina McGill
   </a>
   <div class="nav-links">
@@ -186,28 +181,24 @@
     <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
   </div>
   <div class="container">
-    <span class="where">Kroger · Manufacturing · Project MAKE</span>
-    <h1>Unsticking a stalled $100M transformation</h1>
-    <p class="dek">Two months into an ERP modernization spanning 32 manufacturing facilities, the program was stuck in
-      circles — competing priorities, undefined scope, no agreement on who owned what data. A weeklong alignment
-      workshop turned that stalemate into the plan that carried the program to go-live.</p>
+    <span class="where">Fortune 50 Grocery · Manufacturing</span>
+    <h1>Paper processes to AI-driven: $100M ERP transformation</h1>
+    <p class="dek">Two months after kicking off a multi-year $100M ERP transformation across 32 manufacturing
+      facilities, the program was swirling. Not because the cutting-edge technology couldn't meet the needs of the
+      business, but because the details of how it would meet those needs weren't understood. Without visibility
+      into the interconnectedness of legacy data, systems, operational processes, and organizational structure,
+      the team of systems integrators, engineers, product managers and designers, and business stakeholders didn't
+      share a common understanding of how the business actually worked. A weeklong onsite workshop closed that gap
+      and turned stalled alignment into the plan that carried the program to go-live.</p>
 
     <div class="meta-row">
       <div class="meta-item">
-        <div class="label">Role</div>
-        <div class="val">Sr. Manager, Product &amp; Program Management</div>
-      </div>
-      <div class="meta-item">
-        <div class="label">Timeline</div>
-        <div class="val">Project MAKE · 2022&ndash;2025</div>
-      </div>
-      <div class="meta-item">
         <div class="label">Team</div>
-        <div class="val">Systems integrators, contract engineers, business SMEs, Kroger product/design/engineering, executive sponsors</div>
+        <div class="val">Systems integrators, contract engineers, business SMEs, product management and design, engineering, executive sponsors</div>
       </div>
       <div class="meta-item">
         <div class="label">Focus</div>
-        <div class="val">Process mapping &amp; cross-functional alignment</div>
+        <div class="val">Executive / stakeholder alignment &amp; prioritization, service blueprinting, risk assessment, integration mapping, requirements validation and discovery</div>
       </div>
     </div>
 
@@ -219,19 +210,19 @@
   </div>
 </header>
 
-<!-- KEY IMAGE — the one hero visual for the whole case study. Landscape, full container width. -->
+<!-- KEY IMAGE -->
 <div class="container">
   <div class="media-block">
     <div class="media landscape">
-      <img src="../assets/case-studies/project-make-alignment/key-image.jpg" alt=""
+      <img src="../assets/case-studies/project-make-alignment/workshop-hero.png" alt="Team members gathered around a process diagram on the wall"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="media-fallback">
         <div class="orbit o1"></div><div class="orbit o2"></div>
         <span class="tag">Key image</span>
-        <span class="desc">Photo or diagram representing the workshop — e.g. the workshop room, the finished service blueprint wall, or a title slide</span>
+        <span class="desc">Photo or diagram representing the workshop — the workshop room, the finished business process map wall, or a title slide</span>
       </div>
     </div>
-    <p class="media-caption">The alignment workshop in progress — mapping every critical workpath before the team could agree on a plan.</p>
+    <p class="media-caption">The alignment workshop in progress — mapping the business end-to-end before the team could agree on a plan.</p>
   </div>
 </div>
 
@@ -240,136 +231,161 @@
 
     <section class="section">
       <h2>The problem</h2>
-      <p>Project MAKE was a $100M+ effort to move 32 grocery, dairy, and bakery manufacturing facilities onto a
-        modern, data- and AI-enabled operating model — with no inherited documentation, process, or roadmap to
-        build from. Two months in, the program was stuck. The room spanned systems integrators, contract engineers,
-        business stakeholders and SMEs, Kroger product, design, and engineering, plus executives who wanted firm
-        dates. Priorities were competing across every user group, the scope of technical development was still
-        undefined, and nobody had agreed on who owned what data.</p>
-      <p>Two months of iteration in, there still wasn't a cohesive plan for delivering the ERP to the first plant.
-        Meetings kept surfacing the same disagreements without resolving them — the program had all the ingredients
-        of a transformation and none of the alignment to move it forward.</p>
-
-      <div class="callout">
-        <span class="icon">⚠️</span>
-        <div>
-          <div class="label">Why this stalled</div>
-          <p>No single artifact existed yet that every function — engineering, SMEs, systems integrators, and
-            executives — had actually agreed to. Everyone was solving a slightly different version of the problem.</p>
-        </div>
-      </div>
+      <p>This Fortune 50 grocery manufacturer was undertaking its first substantial digital transformation of its
+        manufacturing systems in decades, replacing end-of-life technologies and paper processes with a modern
+        AI-powered ERP tech stack. Change of this scale impacted every part of the business:</p>
+      <ul class="list">
+        <li>Demand and supply planning</li>
+        <li>Procurement</li>
+        <li>Plant and warehouse operations</li>
+        <li>Quality assurance</li>
+        <li>Finance and accounting</li>
+      </ul>
+      <p>Everyone was working toward the same goal, but not from the same starting point: priorities competed
+        across every group, technical scope stayed undefined, and nobody had agreed on who owned what data. This
+        made creating a solid rollout and resourcing plan nearly impossible. Without an accurate, end-to-end
+        understanding of how the business actually worked, every conversation about the future state was really a
+        debate between people picturing a different present.</p>
     </section>
 
     <section class="section">
       <h2>What I did</h2>
-      <p>I led a weeklong alignment workshop built to force the decisions everyone had been avoiding. Rather than
-        another status meeting, the goal was to put every open question on the table at once, in a shared visual
-        format nobody could talk around.</p>
+      <p>I proposed a weeklong onsite workshop built to close that gap: not another status meeting, but a
+        structured effort to build the one shared, accurate picture of the business every function in the room
+        could actually stand behind, and to get executive and cross-functional alignment on it. This was not an
+        easy sell to our executive sponsors, as it would require bringing together a global team of over 60
+        people, coordinating multiple site visits, and, most importantly, stacking hands on a timeline, budgets,
+        and a set of technical requirements.</p>
+      <p>I was able to secure approval for the workshop by showcasing an innovative approach: one that aligned deep
+        understanding of people, processes, data, and technology into tangible artifacts that made clear where
+        risks and opportunities lie.</p>
+
+      <div class="media-block">
+        <div class="media landscape">
+          <img src="../assets/case-studies/project-make-alignment/walking-the-wall.png" alt="Team members reviewing visual diagram and engaged in discussion"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Photo · landscape</span>
+            <span class="desc">Walking the wall — reviewing the business process map with the room</span>
+          </div>
+        </div>
+        <p class="media-caption">Having a tangible view of business processes allowed the team to more quickly identify and discuss risks and technical considerations.</p>
+      </div>
 
       <div class="artifact-grid">
         <div class="artifact-card">
           <span class="num">1</span>
           <h3>End-to-end service blueprint</h3>
-          <p>Mapped every critical workpath across the transformation, identifying user groups, data owners, and
-            exactly where data migration would break if left unresolved.</p>
+          <p>Mapped the business end-to-end, workflow by workflow, capturing how work actually happened today, not
+            how it was assumed to happen. We didn't stop there: these artifacts also mapped data clean-up and
+            migration, integration, automation, and reporting needs, tying them back to in-scope and out-of-scope
+            requirements and to the risks, assumptions, and operational impacts they surfaced.</p>
         </div>
         <div class="artifact-card">
           <span class="num">2</span>
-          <h3>RAID log</h3>
-          <p>Surfaced risks, assumptions, issues, and dependencies that had been discussed informally for weeks but
-            never written down where the whole room could see them together.</p>
+          <h3>Site visits &amp; deep-dive interviews</h3>
+          <p>The mapping didn't happen from a conference room. We ran site visits and deep-dive interviews directly
+            with the people running the plants, surfacing the real variations, exceptions, and workarounds no org
+            chart or SOP would have shown.</p>
         </div>
         <div class="artifact-card">
           <span class="num">3</span>
-          <h3>Roadmap &amp; milestone Gantt chart</h3>
-          <p>Tied the blueprint and RAID log to real dates — sequencing, dependencies, and the milestones the
-            business needed to hit, made concrete instead of aspirational.</p>
+          <h3>Data migration &amp; clean-up assessment</h3>
+          <p>Assessed the underlying data itself — quality, ownership, duplication — that would need to move into
+            the new system, surfacing exactly where bad data would become a blocker later if it wasn't dealt with
+            now.</p>
+        </div>
+        <div class="artifact-card">
+          <span class="num">4</span>
+          <h3>RAID log</h3>
+          <p>Surfaced risks, assumptions, issues, and dependencies that had been discussed informally for weeks
+            but never written down where the whole room could see them together.</p>
         </div>
       </div>
 
-      <!-- WIDE DIAGRAM — e.g. a screenshot of the actual service blueprint or Gantt chart. Landscape shape suits
-           most process diagrams, roadmaps, and screenshots. -->
       <div class="media-block">
         <div class="media landscape">
-          <img src="../assets/case-studies/project-make-alignment/service-blueprint.jpg" alt=""
+          <img src="../assets/case-studies/project-make-alignment/e2e-service-blueprint.jpeg" alt="Diagram that represents end to end business processes"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
             <span class="tag">Diagram · landscape</span>
-            <span class="desc">Service blueprint or roadmap screenshot — wide diagrams like this work best full-width</span>
+            <span class="desc">End-to-end business process map</span>
           </div>
         </div>
-        <p class="media-caption">An excerpt of the service blueprint mapping data ownership across every workpath.</p>
+        <p class="media-caption">An excerpt of the end-to-end business process map, built from onsite site visits and interviews.</p>
       </div>
 
-      <!-- TWO-UP GRID — pairs a vertical diagram with a callout, or two images side by side (before/after, etc.) -->
-      <div class="media-grid">
-        <div class="media portrait">
-          <img src="../assets/case-studies/project-make-alignment/raid-log-detail.jpg" alt=""
+      <div class="media-block">
+        <div class="media landscape">
+          <img src="../assets/case-studies/project-make-alignment/plant-operations.png" alt="Manufacturing employees gathered around an interviewer"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
-            <span class="tag">Diagram · portrait</span>
-            <span class="desc">Tall diagram — e.g. a decision tree, org chart, or a vertical excerpt of the RAID log</span>
+            <span class="tag">Photo · landscape</span>
+            <span class="desc">Site visits and deep-dive interviews on the plant floor</span>
           </div>
         </div>
-        <div class="callout orange" style="margin:0;align-self:center">
-          <span class="icon">💡</span>
-          <div>
-            <div class="label">What's a RAID log?</div>
-            <p>Risks, Assumptions, Issues, and Dependencies — a single running document that keeps everything that
-              could derail a program visible in one place, instead of scattered across meeting notes.</p>
-          </div>
-        </div>
+        <p class="media-caption">Site visits and deep-dive interviews with the people running the plants — capturing the real workflow variations no org chart would show.</p>
       </div>
 
-      <p style="margin-top:8px">Laying all three artifacts out together made the trade-offs impossible to avoid:
-        which workflows had to be sequenced first, whose data-ownership questions were blocking engineering, where
-        scope had to flex to hit a date that mattered to the business. The room stopped debating in the abstract and
-        started making calls.</p>
+      <div class="media-block">
+        <div class="media landscape">
+          <img src="../assets/case-studies/project-make-alignment/data-mapping.png" alt="Team members whiteboarding data flows"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Diagram · landscape</span>
+            <span class="desc">Data migration &amp; clean-up assessment</span>
+          </div>
+        </div>
+        <p class="media-caption">An excerpt of the data migration and clean-up assessment — surfacing quality and ownership issues before they became blockers.</p>
+      </div>
+
+      <div class="media-block">
+  <div class="media full">
+    <img src="../assets/case-studies/project-make-alignment/raid.jpg" alt="RAID log diagram"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="media-fallback">
+      <div class="orbit o1"></div><div class="orbit o2"></div>
+      <span class="tag">Diagram</span>
+      <span class="desc">RAID log excerpt</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout orange">
+  <span class="icon">💡</span>
+  <div>
+    <div class="label">What's a RAID log?</div>
+    <p>Risks, Assumptions, Issues, and Dependencies — a single running document that keeps everything that
+      could derail a program visible in one place, instead of scattered across meeting notes.</p>
+  </div>
+</div>
+
+      <p style="margin-top:8px">Laying the business process map, the interview findings, the data assessment, and
+        the RAID log out together (and tying all of it to a roadmap and milestone Gantt chart) made the trade-offs
+        impossible to avoid: which paper processes had to be redesigned before they could be automated, whose
+        data-ownership questions were blocking engineering, and where scope had to flex to hit a date that mattered
+        to the business. The room stopped debating in the abstract and started making calls.</p>
     </section>
 
     <section class="section">
       <div class="pull-quote">
         <span class="mark">&ldquo;</span>
-        <blockquote>This was the day the project really started. We've just been talking in circles. Now we're on
-          the same page.</blockquote>
+        <blockquote>This was the day the project really started. Now we're on the same page.</blockquote>
         <cite>— Project sponsor, at the close of the alignment workshop</cite>
       </div>
     </section>
 
     <section class="section">
       <h2>Outcome</h2>
-      <p>That workshop became the catalyst for the rest of the program — the blueprint, roadmap, and RAID log built
-        that week were the foundation everything downstream got built on. With the plan finally shared and
-        concrete, the team that carried it forward through testing, training, and go-live delivered the rollout
-        with <strong>zero plant downtime</strong>.</p>
-
-      <div class="outcome-grid">
-        <div class="outcome-stat">
-          <span class="n">1 week</span>
-          <span class="l">to turn two months of circling into a shared plan</span>
-        </div>
-        <div class="outcome-stat">
-          <span class="n">3 artifacts</span>
-          <span class="l">blueprint, RAID log, and roadmap — reused for the rest of the program</span>
-        </div>
-        <div class="outcome-stat">
-          <span class="n">0</span>
-          <span class="l">plant downtime at go-live</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>What's next in this series</h2>
-      <p>Project MAKE generated enough material for more than one case study. This one covers the process-mapping
-        and alignment work that got the program moving. The
-        <a href="project-make-discovery.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">discovery work</a>
-        behind the 100+ workflows we mapped facility by facility, and the
-        <a href="project-make-go-live.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">change-management work</a>
-        that carried the plan through to that zero-downtime go-live, are their own case studies. A mobility hardware
-        rollout — Android handhelds and scanners tested on the plant floor before deployment — is still to come.</p>
+      <p>That workshop became the catalyst for the rest of the program: the service blueprint, the data
+        assessment, and the RAID log built that week became the foundation the rest of the AI-driven transformation
+        got built on. With a shared, accurate picture of the business finally in place, and executive and
+        cross-functional alignment behind it, the team that carried the plan forward through testing, training,
+        and go-live delivered the rollout with <strong>zero plant downtime</strong>.</p>
     </section>
 
   </div>
@@ -390,7 +406,7 @@
     <div class="inner">
       <span class="eyebrow">Atom + Bits</span>
       <h2>In the middle of a transformation right now?</h2>
-      <p>Atom + Bits is my consultancy for the messy middle between operational reality and digital transformation. Let's talk about what you're navigating.</p>
+      <p>Atom + Bits is a consultancy for the messy middle between operational reality and digital transformation. Let's talk about what you're navigating.</p>
       <a class="btn btn-primary" href="../index.html#contact">Start a conversation &rarr;</a>
     </div>
   </div>
@@ -399,7 +415,7 @@
 <footer>
   <div class="wide">
     <span>&copy; 2026 Karina McGill · Atom + Bits LLC</span>
-    <a href="../index.html#contact">karina.mcgill@gmail.com</a>
+    <a href="../index.html#contact">karina@atomandbits.ai</a>
   </div>
 </footer>
 
