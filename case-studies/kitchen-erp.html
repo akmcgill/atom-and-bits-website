@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitchen ERP: A Faster Path to ERP Discovery — Karina McGill</title>
+<title>Kitchen ERP: Faster Discovery, Cooked Up in the Kitchen — Karina McGill</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -72,6 +72,8 @@
   .media img{width:100%;height:100%;object-fit:cover;display:block}
   .media.landscape{aspect-ratio:16/9;width:100%}
   .media.portrait{aspect-ratio:3/4;width:100%;max-width:420px}
+  .media.full{aspect-ratio:auto;width:100%}
+  .media.full img{height:auto;object-fit:contain}
   .media-fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;
     gap:10px;background:linear-gradient(135deg,var(--ink),#1c2733);text-align:center;padding:24px;overflow:hidden}
   .media-fallback .orbit{border-color:rgba(248,245,238,.18)}
@@ -172,11 +174,11 @@
 
 <nav>
   <a class="logo" href="../index.html">
-    <svg width="26" height="26" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="72" height="72" rx="16" fill="#00B8A1"/><circle cx="36" cy="36" r="24" fill="#0F171F"/><path d="M22.752 41L25.328 31.2H28.548L31.124 41H29.22L28.688 38.844H25.188L24.656 41H22.752ZM25.622 37.136H28.254L27.064 32.362H26.812L25.622 37.136ZM34.887 39.026V36.898H32.787V35.302H34.887V33.174H36.539V35.302H38.639V36.898H36.539V39.026H34.887ZM40.6987 41V39.376H41.9867V32.824H40.6987V31.2H45.7387C46.336 31.2 46.854 31.3027 47.2927 31.508C47.7407 31.704 48.086 31.9887 48.3287 32.362C48.5807 32.726 48.7067 33.1647 48.7067 33.678V33.818C48.7067 34.266 48.6227 34.6347 48.4547 34.924C48.2867 35.204 48.086 35.4233 47.8527 35.582C47.6287 35.7313 47.414 35.8387 47.2087 35.904V36.156C47.414 36.212 47.638 36.3193 47.8807 36.478C48.1234 36.6273 48.3287 36.8467 48.4967 37.136C48.674 37.4253 48.7627 37.8033 48.7627 38.27V38.41C48.7627 38.9513 48.6367 39.418 48.3847 39.81C48.1327 40.1927 47.7827 40.4867 47.3347 40.692C46.896 40.8973 46.3827 41 45.7947 41H40.6987ZM43.8347 39.32H45.5707C45.972 39.32 46.294 39.222 46.5367 39.026C46.7887 38.83 46.9147 38.55 46.9147 38.186V38.046C46.9147 37.682 46.7934 37.402 46.5507 37.206C46.308 37.01 45.9814 36.912 45.5707 36.912H43.8347V39.32ZM43.8347 35.232H45.5427C45.9254 35.232 46.238 35.134 46.4807 34.938C46.7327 34.742 46.8587 34.4713 46.8587 34.126V33.986C46.8587 33.6313 46.7374 33.3607 46.4947 33.174C46.252 32.978 45.9347 32.88 45.5427 32.88H43.8347V35.232Z" fill="#F8F5EE"/></svg>
+    <svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="4.2" fill="#f16935"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#0f171f" stroke-width="1.4" transform="rotate(28 13 13)"/><ellipse cx="13" cy="13" rx="11.5" ry="5" fill="none" stroke="#00b8a1" stroke-width="1.4" transform="rotate(-28 13 13)"/></svg>
     Karina McGill
   </a>
   <div class="nav-links">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a class="active" href="index.html">Case Studies</a><a href="../index.html#writing">Articles</a>
+    <a href="../index.html">Home</a><a href="../about.html">About</a><a class="active" href="index.html">Case Studies</a>
   </div>
   <a class="btn btn-primary" href="../index.html#contact">Work with me</a>
 </nav>
@@ -192,24 +194,18 @@
     <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
   </div>
   <div class="container">
-    <span class="where">Atom + Bits · Personal R&amp;D · Discovery Methodology</span>
-    <h1>Faster ERP discovery, tested on a kitchen pantry</h1>
-    <p class="dek">Enterprise ERP discovery usually runs on months of stakeholder interviews before the real
-      dependencies show up. I built a working household inventory system in two weeks to test whether building
-      beats talking — and hit five of the same six decision categories a $100M rollout would face.</p>
+    <span class="where">Atom + Bits · Discovery Methodology</span>
+    <h1>Faster ERP discovery, cooked up in the kitchen</h1>
+    <p class="dek">Discovery for enterprise ERP software can take months, and by the time working software is in
+      front of end users, changes are costly and risky to the business. But what if there were a low-cost method
+      that produced more meaningful insights than any product requirements document ever could? To test this
+      hypothesis, I built a working household inventory system in two weeks to see whether building beats talking,
+      and hit many of the decision categories a $100M rollout would face, in a fraction of the time.</p>
 
     <div class="meta-row">
       <div class="meta-item">
-        <div class="label">Role</div>
-        <div class="val">Product Manager &amp; UX Architect</div>
-      </div>
-      <div class="meta-item">
-        <div class="label">Timeline</div>
-        <div class="val">July 2026 · 2-week build, still running</div>
-      </div>
-      <div class="meta-item">
         <div class="label">Team</div>
-        <div class="val">Solo discovery &amp; PRD; Gabe Crooker on implementation, deployment, and QA</div>
+        <div class="val">Solo founder handling discovery, PRD, implementation, deployment, and QA</div>
       </div>
       <div class="meta-item">
         <div class="label">Focus</div>
@@ -219,8 +215,8 @@
 
     <div class="metric-strip">
       <span class="pill"><b>2 weeks</b> idea to live system</span>
-      <span class="pill"><b>5 of 6</b> ERP domains surfaced</span>
-      <span class="pill"><b>$500</b> total project budget</span>
+      <span class="pill"><b>$50 total cost</b> against a $500 planned budget, a 10x margin</span>
+      <span class="pill"><b>Live software</b> not a mockup, a slide deck, or a PRD alone</span>
     </div>
   </div>
 </header>
@@ -229,7 +225,7 @@
 <div class="container">
   <div class="media-block">
     <div class="media landscape">
-      <img src="../assets/case-studies/kitchen-erp/stock-overview.png" alt=""
+      <img src="../assets/case-studies/kitchen-erp/stock-overview.png" alt="Live stock overview screen showing inventory, value, and expiration tracking"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="media-fallback">
         <div class="orbit o1"></div><div class="orbit o2"></div>
@@ -247,34 +243,47 @@
     <section class="section">
       <h2>The problem</h2>
       <p>Enterprise ERP discovery usually leans on round after round of stakeholder interviews, workshops, and
-        document reviews before the real dependencies show up: data quality issues, how zones and locations should
-        actually be modeled, exception handling, permissions, mobility constraints. Too often those show up late,
-        during testing or after launch, once they're expensive to fix.</p>
-      <p>I wanted to test whether that timeline could compress — not by skipping rigor, but by replacing talking
+        document reviews before the real dependencies show up: data quality issues, zone and location modeling,
+        exception handling, permissions, mobility constraints. Too often those show up late, during testing or
+        after launch, once they're expensive to fix.</p>
+      <p>I wanted to test whether that timeline could compress, not by skipping rigor, but by replacing talking
         about a system with actually building one. So I used a real, working household kitchen inventory tool,
         built on the open-source platform Grocy, as a lightweight stand-in for enterprise ERP discovery. If I
         actually built something instead of just discussing it, would I run into the same kinds of decisions that
-        show up in large-scale ERP projects — item setup, inventory zones, barcode scanning, inventory rules,
-        unit-of-measure configuration, mobility UX — and would I get there faster?</p>
+        show up in large-scale ERP projects (item setup, inventory zones, barcode scanning, inventory rules,
+        unit-of-measure configuration, mobility UX), and would I get there faster?</p>
 
       <div class="callout">
         <span class="icon">💡</span>
         <div>
           <div class="label">A note on framing</div>
-          <p>The household problem — not knowing what's in the pantry, wasting food, buying doubles — is really
-            just the vehicle here. What I actually wanted to test was the discovery method itself. In a lot of
-            ways, this project is a pilot for how Atom + Bits approaches discovery with clients, dressed up as a
-            kitchen app.</p>
+          <p>The household problem (not knowing what's in the pantry, wasting food, buying doubles) is really just
+            the vehicle here. What I actually wanted to test was the discovery method itself. In a lot of ways,
+            this project is a pilot for how Atom + Bits approaches discovery with clients, dressed up as a kitchen
+            app.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>What I did</h2>
-      <p>I ran a structured, five-round PM/UX discovery process, deliberately modeled on the same lens I use in
-        Atom + Bits engagements: workflow, coordination, knowledge, decision-making, and readiness. Each round
-        captured raw requirements and decisions before anything got synthesized into a formal PRD — the same way
-        an enterprise discovery workstream logs interview notes before requirements get written up.</p>
+      <p>I ran a structured discovery process, deliberately modeled on the same lens I use in Atom + Bits
+        engagements: workflow, coordination, knowledge, decision-making, and readiness. Each assessment captured
+        raw requirements and decisions before anything got synthesized into a formal PRD, the same way an
+        enterprise discovery workstream logs interview notes before requirements get written up.</p>
+
+      <div class="media-block">
+        <div class="media full">
+          <img src="../assets/case-studies/kitchen-erp/grocery-architecture.png" alt="Technical spec generated on Day 1 of discovery"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Diagram</span>
+            <span class="desc">Technical spec generated on Day 1 of discovery</span>
+          </div>
+        </div>
+        <p class="media-caption">Technical spec generated on Day 1 of discovery.</p>
+      </div>
 
       <div class="artifact-grid">
         <div class="artifact-card">
@@ -292,21 +301,16 @@
         <div class="artifact-card">
           <span class="num">3</span>
           <h3>Scope discipline</h3>
-          <p>Dropped receipt and photo OCR from v1, locked the final stock-in method set, and confirmed no data
-            migration was needed — the round that kept the comparison to enterprise discovery clean.</p>
+          <p>Dropped receipt and photo OCR from v1, locked the final stock-in method set, and leveraged
+            off-the-shelf API calls to ingest items from a national retailer.</p>
         </div>
       </div>
-
-      <p style="margin-top:28px"><strong>The key insight:</strong> the thing that actually slowed discovery down
-        wasn't a technology gap, it was scope discipline. A few easy-yes requests — receipt and photo scanning,
-        push notifications, meal planning — had to be explicitly pushed to a later phase to keep the experiment
-        honest.</p>
     </section>
 
     <section class="section">
       <h2>What building revealed</h2>
-      <p>This is where the real evidence lives. Every decision I made building the Kitchen ERP has a direct match
-        in enterprise ERP discovery — and building it forced each decision out in days, not workshop cycles.</p>
+      <p>This is where the real evidence lives. Every decision made building the Kitchen ERP has a direct match in
+        enterprise ERP discovery, and building it forced each decision out in days, not workshop cycles.</p>
 
       <div class="map-list">
         <div class="map-row">
@@ -314,47 +318,40 @@
             <span class="map-decision">Custom, arbitrary storage locations instead of the platform's 3 defaults</span>
             <span class="map-domain">Inventory zones / bin config</span>
           </div>
-          <p class="map-insight">The need for unlimited, custom zones — not a fixed template — was obvious on day
-            one of physically stocking the kitchen. It's the kind of requirement that's easy to state in the
-            abstract and easy to underscope in a workshop.</p>
+          <p class="map-insight">The need for unlimited, custom zones (not a fixed template) was obvious on day one
+            of physically stocking the kitchen. It's the kind of requirement that's easy to state in the abstract
+            and easy to underscope in a workshop.</p>
         </div>
         <div class="map-row">
           <div class="map-head">
             <span class="map-decision">Barcode plus manual entry, starting from zero, no data migration</span>
             <span class="map-domain">Item / master data setup</span>
           </div>
-          <p class="map-insight">Real barcode coverage gaps (regional and generic products) showed up the moment I
-            actually scanned items on hand — not from asking someone "will barcodes work for you?" in an interview.</p>
+          <p class="map-insight">Real barcode coverage gaps (regional and generic products) showed up the moment
+            items on hand were actually scanned, not from asking someone "will barcodes work for you?" in an
+            interview.</p>
         </div>
         <div class="map-row">
           <div class="map-head">
             <span class="map-decision">Native barcode support plus an open barcode lookup service</span>
             <span class="map-domain">Barcode scanning / lookup integration</span>
           </div>
-          <p class="map-insight">It exposed the unhappy path right away: what happens when a scan comes back empty
-            — a failure mode that often gets glossed over in a requirements doc until real testing happens.</p>
+          <p class="map-insight">It exposed the unhappy path right away: what happens when a scan comes back empty,
+            a failure mode that often gets glossed over in a requirements doc until real testing happens.</p>
         </div>
         <div class="map-row">
           <div class="map-head">
             <span class="map-decision">Auto-add to shopping list at a minimum-stock threshold</span>
             <span class="map-domain">Inventory management rules</span>
           </div>
-          <p class="map-insight">It forced an actual number — a real threshold — instead of a vague ask like
-            "let us know when we're running low."</p>
-        </div>
-        <div class="map-row">
-          <div class="map-head">
-            <span class="map-decision">Two logins, identical full permissions, no admin/restricted split</span>
-            <span class="map-domain">Role &amp; permission model</span>
-          </div>
-          <p class="map-insight">Landing on a real decision here took one round of questions, compared to the many
-            workshop cycles a multi-role enterprise permission matrix usually eats up.</p>
+          <p class="map-insight">It forced an actual number (a real threshold) instead of a vague ask like "let us
+            know when we're running low."</p>
         </div>
       </div>
 
       <div class="media-block">
         <div class="media landscape">
-          <img src="../assets/case-studies/kitchen-erp/locations.png" alt=""
+          <img src="../assets/case-studies/kitchen-erp/locations.png" alt="Custom storage locations configured in Grocy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
@@ -367,7 +364,7 @@
 
       <div class="media-block">
         <div class="media landscape">
-          <img src="../assets/case-studies/kitchen-erp/purchase-product-overview.png" alt=""
+          <img src="../assets/case-studies/kitchen-erp/purchase-product-overview.png" alt="Purchase flow and product overview panel with price history"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
@@ -381,15 +378,15 @@
 
     <section class="section">
       <h2>The build</h2>
-      <p>I self-hosted Grocy, an open-source inventory and ERP tool, on a budget cloud VPS — configured to fit our
+      <p>Self-hosted Grocy, an open-source inventory and ERP tool, on a budget cloud VPS, configured to fit the
         household rather than custom-built. Keeping v1 to configuration only was itself a strategic call: it kept
-        the discovery test clean, so what I learned could be credited to the discovery process itself, not to how
-        fast we could code. Gabe handled deployment, infrastructure, and device testing, while I owned
-        requirements, prioritization, and the PRD.</p>
+        the discovery test clean, so what was learned could be credited to the discovery process itself, not to
+        how fast the app could be coded. I handled every part of it myself, start to finish: requirements,
+        prioritization, and the PRD, plus deployment, infrastructure, and device testing on the live system.</p>
 
       <div class="media-grid">
         <div class="media landscape">
-          <img src="../assets/case-studies/kitchen-erp/recipes.png" alt=""
+          <img src="../assets/case-studies/kitchen-erp/recipes.png" alt="Recipe-linked shopping list with live cost and calorie data"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
@@ -398,7 +395,7 @@
           </div>
         </div>
         <div class="media landscape">
-          <img src="../assets/case-studies/kitchen-erp/meal-plan.png" alt=""
+          <img src="../assets/case-studies/kitchen-erp/meal-plan.png" alt="Weekly meal plan checked against real stock on hand"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="media-fallback">
             <div class="orbit o1"></div><div class="orbit o2"></div>
@@ -413,63 +410,52 @@
     <section class="section">
       <div class="pull-quote">
         <span class="mark">&ldquo;</span>
-        <blockquote>The thing that actually slowed discovery down wasn't a technology gap — it was scope
+        <blockquote>The thing that actually slowed discovery down wasn't a technology gap, it was scope
           discipline.</blockquote>
       </div>
     </section>
 
     <section class="section">
       <h2>Validation</h2>
-      <p>Instead of a walkthrough or a mockup, I tested the live production app on an actual Android phone, across
-        two mobile browsers, within the first two days it was live. It loaded and worked on both. Barcode scanning
-        specifically wasn't verified yet on that platform, since that workflow wasn't fully configured at test
-        time.</p>
+      <p>Instead of a walkthrough or a mockup, the live production app was tested on an actual Android phone,
+        across two mobile browsers, within the first two days it was live. It loaded and worked on both. Barcode
+        scanning was tested the same way, on a handheld scanner within the two-week sprint, using the open-source
+        tool Barcode Buddy.</p>
 
       <div class="callout orange">
-        <span class="icon">⚠️</span>
+        <span class="icon">✅</span>
         <div>
-          <div class="label">Logged as a risk, not assumed</div>
-          <p>I logged the unverified barcode-scanning path as an open risk instead of assuming it would be fine —
-            a discipline enterprise testing often skips when a deadline is looming.</p>
+          <div class="label">Verified early, not assumed</div>
+          <p>Barcode scanning is the kind of dependency that often doesn't get tested until SIT or UAT, months into
+            an enterprise rollout. Testing it inside the two-week sprint, instead of assuming a scanner and a
+            lookup service would just work together, is the same discipline enterprise discovery teams often don't
+            get to until much later.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2>Outcome</h2>
-      <p>The long-term product metric — whether we actually keep using it day to day — needs more time before I can
-        report it honestly. What I can report now is how fast discovery and decisions actually moved, which is
-        really the point of this case study.</p>
+      <p>The long-term product metric (whether the system actually gets used day to day) needs more time before it
+        can be reported honestly. What can be reported now is how fast discovery and decisions actually moved,
+        using working software, not just pages of documentation and tech specs, and how far under budget it came
+        in: the project was scoped at $500 and finished at $50, a 10x margin that translated directly into faster,
+        lower-cost insights than planned.</p>
 
       <div class="outcome-grid">
         <div class="outcome-stat">
-          <span class="n">5 rounds</span>
-          <span class="l">of structured discovery, compressed into one v1 PRD</span>
+          <span class="n">10x</span>
+          <span class="l">under the planned budget — $50 spent against a $500 plan</span>
         </div>
         <div class="outcome-stat">
           <span class="n">~1 day</span>
           <span class="l">from PRD kickoff to a live production system</span>
         </div>
         <div class="outcome-stat">
-          <span class="n">5 of 6</span>
-          <span class="l">ERP-relevant decision categories surfaced and resolved in two weeks</span>
+          <span class="n">2 weeks</span>
+          <span class="l">working barcode scanning, API-shopping list ingestion</span>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>Reflection</h2>
-      <p>Pairing — or in some cases swapping out — traditional interview-heavy ERP discovery with a real, working,
-        low-fidelity analog can surface the same kinds of dependencies and trade-offs in days instead of months,
-        without waiting on a long requirements document to get reviewed and signed off. That's directly useful for
-        Atom + Bits' Operational Readiness &amp; Workflow Intelligence Assessment work, and it's worth trying out
-        as an actual client-facing method.</p>
-      <p>What I still need to test: a two-person household is a much simpler stakeholder environment than a
-        multi-department enterprise rollout, where competing incentives — not just missing information — are what
-        actually slow discovery down. I need to test this against a situation with real stakeholder conflict
-        before I can say it generalizes to enterprise clients. And I'd stress-test unit-of-measure configuration on
-        purpose in v1 instead of defaulting past it, so the discovery-coverage story is a clean 6 for 6 instead of
-        5 of 6.</p>
     </section>
 
   </div>
@@ -490,7 +476,7 @@
     <div class="inner">
       <span class="eyebrow">Atom + Bits</span>
       <h2>In the middle of a transformation right now?</h2>
-      <p>Atom + Bits is my consultancy for the messy middle between operational reality and digital transformation. Let's talk about what you're navigating.</p>
+      <p>Atom + Bits is a consultancy for the messy middle between operational reality and digital transformation. Let's talk about what you're navigating.</p>
       <a class="btn btn-primary" href="../index.html#contact">Start a conversation &rarr;</a>
     </div>
   </div>
@@ -499,7 +485,7 @@
 <footer>
   <div class="wide">
     <span>&copy; 2026 Karina McGill · Atom + Bits LLC</span>
-    <a href="../index.html#contact">karina.mcgill@gmail.com</a>
+    <a href="../index.html#contact">karina@atomandbits.ai</a>
   </div>
 </footer>
 
