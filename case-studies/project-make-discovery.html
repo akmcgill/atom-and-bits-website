@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scaling Discovery to 100+ Interviews Without Breaking the Rules — Karina McGill</title>
+<title>AI-Powered Rapid Product Discovery Across 100+ Interviews — Karina McGill</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -65,6 +65,7 @@
   .media img{width:100%;height:100%;object-fit:cover;display:block}
   .media.landscape{aspect-ratio:16/9;width:100%}
   .media.portrait{aspect-ratio:3/4;width:100%;max-width:420px}
+  .media.square{aspect-ratio:1/1;width:100%}
   .media-fallback{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;
     gap:10px;background:linear-gradient(135deg,var(--ink),#1c2733);text-align:center;padding:24px;overflow:hidden}
   .media-fallback .orbit{border-color:rgba(248,245,238,.18)}
@@ -103,6 +104,9 @@
   .artifact-card:nth-child(3) .num{background:var(--teal)}
   .artifact-card h3{font-size:17.5px;font-weight:600;margin-bottom:8px}
   .artifact-card p{font-size:14px;color:var(--muted);margin:0;max-width:none}
+  .section ul{color:var(--muted);font-size:16.5px;line-height:1.75;margin:0 0 16px 22px}
+  .section ul li{margin-bottom:6px}
+  .wid-subhead{font-size:19px;font-weight:600;margin:34px 0 12px;letter-spacing:-.01em}
 
   /* map-list — row-based structured comparison list (from the Kitchen ERP page) */
   .map-list{border-top:2px solid var(--ink);margin-top:8px}
@@ -158,19 +162,19 @@
 <body>
 
 <nav>
-  <a class="logo" href="../../index.html">
+  <a class="logo" href="../index.html">
     <svg width="26" height="26" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="72" height="72" rx="16" fill="#00B8A1"/><circle cx="36" cy="36" r="24" fill="#0F171F"/><path d="M22.752 41L25.328 31.2H28.548L31.124 41H29.22L28.688 38.844H25.188L24.656 41H22.752ZM25.622 37.136H28.254L27.064 32.362H26.812L25.622 37.136ZM34.887 39.026V36.898H32.787V35.302H34.887V33.174H36.539V35.302H38.639V36.898H36.539V39.026H34.887ZM40.6987 41V39.376H41.9867V32.824H40.6987V31.2H45.7387C46.336 31.2 46.854 31.3027 47.2927 31.508C47.7407 31.704 48.086 31.9887 48.3287 32.362C48.5807 32.726 48.7067 33.1647 48.7067 33.678V33.818C48.7067 34.266 48.6227 34.6347 48.4547 34.924C48.2867 35.204 48.086 35.4233 47.8527 35.582C47.6287 35.7313 47.414 35.8387 47.2087 35.904V36.156C47.414 36.212 47.638 36.3193 47.8807 36.478C48.1234 36.6273 48.3287 36.8467 48.4967 37.136C48.674 37.4253 48.7627 37.8033 48.7627 38.27V38.41C48.7627 38.9513 48.6367 39.418 48.3847 39.81C48.1327 40.1927 47.7827 40.4867 47.3347 40.692C46.896 40.8973 46.3827 41 45.7947 41H40.6987ZM43.8347 39.32H45.5707C45.972 39.32 46.294 39.222 46.5367 39.026C46.7887 38.83 46.9147 38.55 46.9147 38.186V38.046C46.9147 37.682 46.7934 37.402 46.5507 37.206C46.308 37.01 45.9814 36.912 45.5707 36.912H43.8347V39.32ZM43.8347 35.232H45.5427C45.9254 35.232 46.238 35.134 46.4807 34.938C46.7327 34.742 46.8587 34.4713 46.8587 34.126V33.986C46.8587 33.6313 46.7374 33.3607 46.4947 33.174C46.252 32.978 45.9347 32.88 45.5427 32.88H43.8347V35.232Z" fill="#F8F5EE"/></svg>
     Karina McGill
   </a>
   <div class="nav-links">
-    <a href="../../index.html">Home</a><a href="../../about.html">About</a><a class="active" href="../index.html">Case Studies</a><a href="../../index.html#writing">Articles</a>
+    <a href="../index.html">Home</a><a href="../about.html">About</a><a class="active" href="index.html">Case Studies</a>
   </div>
-  <a class="btn btn-primary" href="../../index.html#contact">Work with me</a>
+  <a class="btn btn-primary" href="../index.html#contact">Work with me</a>
 </nav>
 
 <div class="back-row">
   <div class="container">
-    <a class="back-link" href="../index.html">&larr; All case studies</a>
+    <a class="back-link" href="index.html">&larr; All case studies</a>
   </div>
 </div>
 
@@ -179,25 +183,23 @@
     <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
   </div>
   <div class="container">
-    <span class="where">Kroger · Manufacturing · Project MAKE</span>
-    <h1>Scaling discovery to 100+ interviews without breaking the rules</h1>
-    <p class="dek">Project MAKE had no inherited documentation, process, or roadmap — every workflow across 32
-      manufacturing facilities had to be discovered from scratch. Manual discovery couldn't move fast enough, and
-      nothing outside Kroger's approved Microsoft 365 stack was on the table. So discovery had to be built twice:
-      once on the plant floor, and once as a self-built AI workflow to make it scale.</p>
+    <span class="where">Fortune 50 · Manufacturing · ERP Implementation</span>
+    <h1>AI-powered rapid product discovery across 100+ interviews</h1>
+    <p class="dek">Discovering and validating requirements for a $100MM ERP implementation across 32 plants,
+      impacting 5,000 associates is wildly complex and time consuming, not only for the team but also for the SMEs
+      asked to participate. Traditional stakeholder interviews and process walkthroughs couldn't move fast enough.
+      But with the power of LLMs and light automation, I created a scaleable playbook for gaining insights quickly
+      without sacrificing quality.</p>
 
     <div class="meta-row">
       <div class="meta-item">
         <div class="label">Role</div>
-        <div class="val">Sr. Manager, Product &amp; Program Management</div>
-      </div>
-      <div class="meta-item">
-        <div class="label">Timeline</div>
-        <div class="val">Project MAKE · 2022&ndash;2025</div>
+        <div class="val">Senior Product Lead</div>
       </div>
       <div class="meta-item">
         <div class="label">Team</div>
-        <div class="val">Plant leadership, operators, 8 product teams, PMs</div>
+        <div class="val">Executive and plant leadership, product management, product design, business SMEs,
+          systems integrators, product design</div>
       </div>
       <div class="meta-item">
         <div class="label">Focus</div>
@@ -206,9 +208,9 @@
     </div>
 
     <div class="metric-strip">
-      <span class="pill"><b>100+</b> workflows mapped</span>
-      <span class="pill"><b>100+</b> interviews in 2 weeks</span>
-      <span class="pill"><b>8</b> product teams</span>
+      <span class="pill"><b>5x</b> speed</span>
+      <span class="pill"><b>100+</b> interviews</span>
+      <span class="pill"><b>11</b> teams</span>
     </div>
   </div>
 </header>
@@ -216,15 +218,15 @@
 <div class="container">
   <div class="media-block">
     <div class="media landscape">
-      <img src="../../assets/case-studies/project-make-discovery/key-image.jpg" alt=""
+      <img src="../assets/case-studies/project-make-discovery/manual-processes-02.png" alt=""
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="media-fallback">
         <div class="orbit o1"></div><div class="orbit o2"></div>
         <span class="tag">Key image</span>
-        <span class="desc">Photo or diagram representing field discovery — e.g. plant-floor observation, an interview guide template, or the SharePoint synthesis repository</span>
+        <span class="desc">Each hand-off, critical decision point, system transaction, user interaction needed to be understood for software development, hardware config, process optimization, and org change management.</span>
       </div>
     </div>
-    <p class="media-caption">Discovery had to run on two tracks at once: hands-on field mapping, and a self-built workflow to synthesize it at scale.</p>
+    <p class="media-caption">Each hand-off, critical decision point, system transaction, user interaction needed to be understood for software development, hardware config, process optimization, and org change management.</p>
   </div>
 </div>
 
@@ -234,65 +236,52 @@
     <section class="section">
       <h2>The problem</h2>
       <p>Project MAKE was moving 32 grocery, dairy, and bakery manufacturing facilities onto a modern, data- and
-        AI-enabled operating model — with no inherited documentation, process, or roadmap to build from. Every one
+        AI-enabled operating model, with no standard documentation, process, or roadmap to build from. Every one
         of the 100+ workflows that ran those plants had to be discovered before it could be redesigned, and the
-        stakes were high: nuanced, high-stakes requirements had to translate into decisions that scaled across
-        every facility, not just the one where they were captured.</p>
-      <p>Later in the program, discovery had to scale again — this time for product requirements, not workflows.
-        Eight product teams needed input from 100+ stakeholders, on a timeline that made a manual interview-and-synthesis
-        process untenable. And the constraint that shaped the solution wasn't capability, it was security: only
-        tools already approved for enterprise use, Microsoft 365, could be considered. Nothing outside that stack
-        was an option.</p>
+        stakes were high: nuanced requirements had to translate into decisions that scaled across every facility,
+        not just the one where they were captured.</p>
+      <p>By the time the program reached Phase 2, the team had grown to 80+ people across product, engineering,
+        data, infrastructure, and organizational change management, and Phase 1 had already exposed the cracks:
+        requirements validation and interviews took months, then synthesis took weeks more before anyone could act
+        on what was learned. Existing discovery playbooks weren't built for this scale, every tool had to be one
+        enterprise IT had already approved, and coordination couldn't disrupt plant operations. Many of the
+        interviewers were new to the work and needed coaching before they could run a session on their own.</p>
 
-      <div class="callout">
-        <span class="icon">🔒</span>
-        <div>
-          <div class="label">The constraint that shaped this</div>
-          <p>No outside AI tools, no new vendor approvals, no additional cost. Whatever got built had to run entirely
-            on Copilot, Teams, SharePoint, and Power Automate — tools Kroger had already sanctioned.</p>
+      <div class="media-block">
+        <div class="media landscape">
+          <img src="../assets/case-studies/project-make-discovery/research-brainstorming.png" alt=""
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Research synthesis</span>
+            <span class="desc">Mapped which critical domains were the least understood and what unknowns were the riskiest for the program. From there program-level research questions were defined.</span>
+          </div>
         </div>
+        <p class="media-caption">Mapped which critical domains were the least understood and what unknowns were the riskiest for the program. From there program-level research questions were defined.</p>
       </div>
+
+      <blockquote style="border-left:3px solid var(--hair);padding-left:20px;margin:28px 0 0;font-style:italic;color:var(--ink);font-size:16px">
+        &ldquo;Why are you asking me this all over again? I already answered this for somebody else on your team.&rdquo;
+        <cite style="display:block;margin-top:8px;font-style:normal;font-size:13px;color:var(--muted)">— Phase 1 research participant</cite>
+      </blockquote>
     </section>
 
     <section class="section">
       <h2>What I did</h2>
-      <p>Discovery ran on two tracks. The first was entirely hands-on: personally mapping 100+ undocumented
-        workflows through direct field discovery — onsite observation, interviews, and workflow mapping with plant
-        leadership and operators, facility by facility. There was no shortcut for this part; it required being on
-        the floor.</p>
+      <p>As Senior Product Lead, I was responsible for managing all user research initiatives on the project and
+        for <strong>building the infrastructure to support a team that had scaled to 80+ people</strong>.</p>
+      <ul>
+        <li>Got executive alignment on plan, resources, methodology, and outcomes</li>
+        <li>Mapped stakeholder groups and identified associated risks</li>
+        <li>Crowdsourced open questions from teams and synthesized them with an LLM to surface overlapping themes
+          and identify the right SMEs</li>
+        <li>Coached and onboarded inexperienced interviewers, including setting interview ground rules</li>
+        <li>Built a repeatable playbook and knowledge management tool with interview guides, procedures, research
+          report-outs, and communications</li>
+      </ul>
 
-      <div class="artifact-grid">
-        <div class="artifact-card">
-          <span class="num">1</span>
-          <h3>Direct field discovery</h3>
-          <p>Onsite observation and interviews with plant leadership and operators, mapping 100+ workflows facility
-            by facility with no inherited documentation to start from.</p>
-        </div>
-        <div class="artifact-card">
-          <span class="num">2</span>
-          <h3>Self-built AI workflow</h3>
-          <p>An automation layer on Copilot, Teams, SharePoint, and Power Automate to run stakeholder discovery at a
-            scale manual synthesis couldn't support.</p>
-        </div>
-        <div class="artifact-card">
-          <span class="num">3</span>
-          <h3>Centralized synthesis repository</h3>
-          <p>Thematic analysis across every transcript, routed and organized so product managers could pull findings
-            directly instead of waiting on a synthesis cycle.</p>
-        </div>
-      </div>
-
-      <p style="margin-top:8px">The second track was the AI workflow, built to run 100+ stakeholder interviews
-        across 8 product teams in two weeks — with product requirements identified almost immediately after. Here's
-        how the pieces fit together:</p>
-
+      <h3 class="wid-subhead">Artifact 1: AI and Workflow Automation</h3>
       <div class="map-list">
-        <div class="map-row">
-          <div class="map-head"><h4>Interview guide creation</h4></div>
-          <span class="map-decision">Manual step replaced</span>
-          <span class="map-domain">Auto-generated per session</span>
-          <div class="map-insight">The workflow auto-generated interview guides for each session from a master interview list, instead of a PM assembling one by hand every time.</div>
-        </div>
         <div class="map-row">
           <div class="map-head"><h4>Document creation &amp; naming</h4></div>
           <span class="map-decision">Manual step replaced</span>
@@ -303,23 +292,50 @@
           <div class="map-head"><h4>Transcript routing</h4></div>
           <span class="map-decision">Manual step replaced</span>
           <span class="map-domain">Routed to SharePoint by team</span>
-          <div class="map-insight">Transcripts were routed to the correct SharePoint folder by team automatically — no PM hunting for the right interview later.</div>
+          <div class="map-insight">Transcripts were routed to the correct SharePoint folder by team automatically, so there was no hunting for the right interview later.</div>
         </div>
         <div class="map-row">
           <div class="map-head"><h4>Synthesis &amp; findings</h4></div>
           <span class="map-decision">Manual step replaced</span>
           <span class="map-domain">Thematic analysis, centralized repository</span>
-          <div class="map-insight">Thematic analysis ran across transcripts automatically and synthesized findings into a repository PMs could pull from directly, instead of waiting on a written report.</div>
+          <div class="map-insight">Pulled all transcripts from the SharePoint repository into Copilot to run sentiment analysis, identify risks, and surface recurring themes across interviews.</div>
         </div>
       </div>
+
+      <h3 class="wid-subhead">Artifact 2: Crowdsourced Questions</h3>
+      <div class="media-block">
+        <div class="media square">
+          <img src="../assets/case-studies/project-make-discovery/crowdsourced-questions.png" alt=""
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="media-fallback">
+            <div class="orbit o1"></div><div class="orbit o2"></div>
+            <span class="tag">Crowdsourced questions</span>
+            <span class="desc">The SharePoint survey form used to crowdsource open questions and research goals from the team.</span>
+          </div>
+        </div>
+      </div>
+      <p>I led the development of the <strong>overall program-level research plan</strong>. To gather questions the
+        team had about the risk domains identified by leadership, I created a SharePoint survey form for teams to
+        complete, identifying who needed to be contacted, what questions were open, what processes needed to be
+        observed or discussed, and what their research goals were.</p>
+      <p><strong>I consolidated and synthesized the completed surveys using Copilot</strong> and mapped them to the risk areas.
+        From there, I worked with the program leadership team (executive sponsor, program, product, vendor,
+        engineering, OCM) to prioritize and streamline questions, estimate duration and time commitment for
+        participants, and identify SMEs from both the program and the business.</p>
+
+      <h3 class="wid-subhead">Artifact 3: Discovery Knowledge Base</h3>
+      <p>I developed a repository of interview guides, observation guides, checklists, FAQs, and troubleshooting
+        guides that substantially reduced the prep time it takes to conduct interviews at this scale, resulting in
+        <strong>a self-service model that interviewers could use with minimal onboarding</strong>.</p>
     </section>
 
     <section class="section">
       <div class="pull-quote">
         <span class="mark">&ldquo;</span>
-        <blockquote>The constraint that shaped this was security, not capability. I had to build that connective
-          layer myself, using tools that were already sanctioned.</blockquote>
-        <cite>— Karina, on why the AI workflow had to be self-built rather than bought</cite>
+        <blockquote>Teams enjoyed discovery so much more this time around. What felt chaotic, disconnected, and
+          unclear before now felt like a well-oiled machine. Rather than fighting nerves and logistics, they could
+          listen deeply and learn quickly.</blockquote>
+        <cite>— Fun fact</cite>
       </div>
     </section>
 
@@ -335,27 +351,17 @@
       <div class="outcome-grid">
         <div class="outcome-stat">
           <span class="n">100+</span>
-          <span class="l">workflows mapped facility by facility, with no inherited documentation</span>
+          <span class="l">interviews conducted across nearly a dozen teams</span>
         </div>
         <div class="outcome-stat">
           <span class="n">2 weeks</span>
-          <span class="l">to run 100+ interviews across 8 product teams</span>
+          <span class="l">cut time spent conducting interviews from months to weeks</span>
         </div>
         <div class="outcome-stat">
-          <span class="n">Weeks &rarr; days</span>
-          <span class="l">requirements-gathering timeline, cut with zero added cost or security approval</span>
+          <span class="n">Day 1</span>
+          <span class="l">insights gathered right after interviews</span>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>What's next in this series</h2>
-      <p>This case study covers how Project MAKE built its discovery process from nothing, on the floor and in a
-        self-built AI workflow. The <a href="../project-make-alignment.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">alignment workshop</a>
-        that turned that discovery work into a shared plan is its own case study, as is the
-        <a href="project-make-go-live.html" style="color:var(--ink);text-decoration:underline;text-decoration-color:var(--hair)">change-management work</a>
-        that carried the plan through to a zero-downtime go-live. A mobility hardware rollout — Android handhelds
-        and scanners tested on the plant floor before deployment — is still to come.</p>
     </section>
 
   </div>
@@ -363,8 +369,8 @@
 
 <div class="wide">
   <div class="next-row">
-    <a class="back-link" href="../index.html">&larr; All case studies</a>
-    <a class="btn btn-outline" href="../index.html">See more work &rarr;</a>
+    <a class="back-link" href="index.html">&larr; All case studies</a>
+    <a class="btn btn-outline" href="index.html">See more work &rarr;</a>
   </div>
 </div>
 
@@ -377,7 +383,7 @@
       <span class="eyebrow">Atom + Bits</span>
       <h2>In the middle of a transformation right now?</h2>
       <p>Atom + Bits is my consultancy for the messy middle between operational reality and digital transformation. Let's talk about what you're navigating.</p>
-      <a class="btn btn-primary" href="../../index.html#contact">Start a conversation &rarr;</a>
+      <a class="btn btn-primary" href="../index.html#contact">Start a conversation &rarr;</a>
     </div>
   </div>
 </section>
@@ -385,7 +391,7 @@
 <footer>
   <div class="wide">
     <span>&copy; 2026 Karina McGill · Atom + Bits LLC</span>
-    <a href="../../index.html#contact">karina.mcgill@gmail.com</a>
+    <a href="../index.html#contact">Email Me</a>
   </div>
 </footer>
 

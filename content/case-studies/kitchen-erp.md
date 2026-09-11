@@ -4,7 +4,7 @@
   Compare this file to case-studies/kitchen-erp.html to see the mapping.
 -->
 ---
-title: Faster ERP discovery, tested on a kitchen pantry
+title: Faster ERP discovery, cooked up in the kitchen
 where: Atom + Bits · Personal R&D · Discovery Methodology
 dek: Enterprise ERP discovery usually runs on months of stakeholder interviews before the real dependencies show up. I built a working household inventory system in two weeks to test whether building beats talking — and hit five of the same six decision categories a $100M rollout would face.
 role: Product Manager & UX Architect

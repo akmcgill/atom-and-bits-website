@@ -1,91 +1,87 @@
 ---
-title: Scaling discovery to 100+ interviews without breaking the rules
-where: Kroger · Manufacturing · Project MAKE
-dek: Project MAKE had no inherited documentation, process, or roadmap — every workflow across 32 manufacturing facilities had to be discovered from scratch. Manual discovery couldn't move fast enough, and nothing outside Kroger's approved Microsoft 365 stack was on the table. So discovery had to be built twice — once on the plant floor, and once as a self-built AI workflow to make it scale.
-role: Sr. Manager, Product & Program Management
-timeline: Project MAKE · 2022-2025
-team: Plant leadership, operators, 8 product teams, PMs
+title: AI-powered rapid product discovery across 100+ interviews
+where: Fortune 50 · Manufacturing · ERP Implementation
+dek: Discovering and validating requirements for a $100MM ERP implementation across 32 plants, impacting 5,000 associates is wildly complex and time consuming, not only for the team but also for the SMEs asked to participate. Traditional stakeholder interviews and process walkthroughs couldn't move fast enough. But with the power of LLMs and light automation, I created a scaleable playbook for gaining insights quickly without sacrificing quality.
+role: Senior Product Lead
+team: Executive and plant leadership, product management, product design, business SMEs, systems integrators, product design
 focus: Field discovery & AI-assisted synthesis at scale
 metrics:
-  - 100+ workflows mapped
-  - 100+ interviews in 2 weeks
-  - 8 product teams
+  - 5x speed
+  - 100+ interviews
+  - 11 teams
 ---
 
 <!-- NOTE: this page's map-list uses the two-label "DECISION: / DOMAIN:" variant — see the README's map-list
      note on the known inconsistency between this page and kitchen-erp.html. -->
 
 # Key image
-[MEDIA: landscape — photo or diagram representing field discovery, e.g. plant-floor observation, an interview guide template, or the SharePoint synthesis repository]
-Caption: Discovery had to run on two tracks at once: hands-on field mapping, and a self-built workflow to synthesize it at scale.
+[MEDIA: landscape — assets/case-studies/project-make-discovery/manual-processes-02.png]
+Caption: Each hand-off, critical decision point, system transaction, user interaction needed to be understood for software development, hardware config, process optimization, and org change management.
 
 # The problem
 Project MAKE was moving 32 grocery, dairy, and bakery manufacturing facilities onto a modern, data- and
-AI-enabled operating model — with no inherited documentation, process, or roadmap to build from. Every one of the
+AI-enabled operating model, with no standard documentation, process, or roadmap to build from. Every one of the
 100+ workflows that ran those plants had to be discovered before it could be redesigned, and the stakes were
-high: nuanced, high-stakes requirements had to translate into decisions that scaled across every facility, not
-just the one where they were captured.
+high: nuanced requirements had to translate into decisions that scaled across every facility, not just the one
+where they were captured.
 
-Later in the program, discovery had to scale again — this time for product requirements, not workflows. Eight
-product teams needed input from 100+ stakeholders, on a timeline that made a manual interview-and-synthesis
-process untenable. And the constraint that shaped the solution wasn't capability, it was security: only tools
-already approved for enterprise use, Microsoft 365, could be considered. Nothing outside that stack was an
-option.
+By the time the program reached Phase 2, the team had grown to 80+ people across product, engineering, data,
+infrastructure, and organizational change management, and Phase 1 had already exposed the cracks: requirements
+validation and interviews took months, then synthesis took weeks more before anyone could act on what was
+learned. Existing discovery playbooks weren't built for this scale, every tool had to be one enterprise IT had
+already approved, and coordination couldn't disrupt plant operations. Many of the interviewers were new to the
+work and needed coaching before they could run a session on their own.
 
-> CALLOUT (teal): The constraint that shaped this
-> No outside AI tools, no new vendor approvals, no additional cost. Whatever got built had to run entirely on
-> Copilot, Teams, SharePoint, and Power Automate — tools Kroger had already sanctioned.
+[MEDIA: landscape — assets/case-studies/project-make-discovery/research-brainstorming.png]
+Caption: Mapped which critical domains were the least understood and what unknowns were the riskiest for the
+program. From there program-level research questions were defined.
+
+> "Why are you asking me this all over again? I already answered this for somebody else on your team." — Phase 1
+> research participant
 
 # What I did
-Discovery ran on two tracks. The first was entirely hands-on: personally mapping 100+ undocumented workflows
-through direct field discovery — onsite observation, interviews, and workflow mapping with plant leadership and
-operators, facility by facility. There was no shortcut for this part; it required being on the floor.
+As Senior Product Lead, I was responsible for managing all user research initiatives on the project and for
+**building the infrastructure to support a team that had scaled to 80+ people**.
+- Got executive alignment on plan, resources, methodology, and outcomes
+- Mapped stakeholder groups and identified associated risks
+- Crowdsourced open questions from teams and synthesized them with an LLM to surface overlapping themes and
+  identify the right SMEs
+- Coached and onboarded inexperienced interviewers, including setting interview ground rules
+- Built a repeatable playbook and knowledge management tool with interview guides, procedures, research
+  report-outs, and communications
 
-## Artifact 1: Direct field discovery
-Onsite observation and interviews with plant leadership and operators, mapping 100+ workflows facility by
-facility with no inherited documentation to start from.
+## Artifact 1: AI and Workflow Automation
+**Document creation & naming** (Manual step replaced → Power Automate orchestration): Power Automate
+orchestrated document creation and enforced naming conventions automatically, so nothing got lost to an
+inconsistent file name.
+**Transcript routing** (Manual step replaced → Routed to SharePoint by team): Transcripts were routed to the
+correct SharePoint folder by team automatically, so there was no hunting for the right interview later.
+**Synthesis & findings** (Manual step replaced → Thematic analysis, centralized repository): Pulled all
+transcripts from the SharePoint repository into Copilot to run sentiment analysis, identify risks, and surface
+recurring themes across interviews.
 
-## Artifact 2: Self-built AI workflow
-An automation layer on Copilot, Teams, SharePoint, and Power Automate to run stakeholder discovery at a scale
-manual synthesis couldn't support.
+## Artifact 2: Crowdsourced Questions
+[MEDIA: landscape — assets/case-studies/project-make-discovery/crowdsourced-questions.png]
+I led the development of the **overall program-level research plan**. To gather questions the team had about the
+risk domains identified by leadership, I created a SharePoint survey form for teams to complete, identifying who
+needed to be contacted, what questions were open, what processes needed to be observed or discussed, and what
+their research goals were.
 
-## Artifact 3: Centralized synthesis repository
-Thematic analysis across every transcript, routed and organized so product managers could pull findings
-directly instead of waiting on a synthesis cycle.
+**I consolidated and synthesized the completed surveys using Copilot** and mapped them to the risk areas. From
+there, I worked with the program leadership team (executive sponsor, program, product, vendor, engineering, OCM)
+to prioritize and streamline questions, estimate duration and time commitment for participants, and identify
+SMEs from both the program and the business.
 
-The second track was the AI workflow, built to run 100+ stakeholder interviews across 8 product teams in two
-weeks — with product requirements identified almost immediately after. Here's how the pieces fit together:
-
-[MAP-LIST]
-## Row: Interview guide creation
-DECISION: Manual step replaced
-DOMAIN: Auto-generated per session
-The workflow auto-generated interview guides for each session from a master interview list, instead of a PM
-assembling one by hand every time.
-
-## Row: Document creation & naming
-DECISION: Manual step replaced
-DOMAIN: Power Automate orchestration
-Power Automate orchestrated document creation and enforced naming conventions automatically, so nothing got
-lost to an inconsistent file name.
-
-## Row: Transcript routing
-DECISION: Manual step replaced
-DOMAIN: Routed to SharePoint by team
-Transcripts were routed to the correct SharePoint folder by team automatically — no PM hunting for the right
-interview later.
-
-## Row: Synthesis & findings
-DECISION: Manual step replaced
-DOMAIN: Thematic analysis, centralized repository
-Thematic analysis ran across transcripts automatically and synthesized findings into a repository PMs could
-pull from directly, instead of waiting on a written report.
-[/MAP-LIST]
+## Artifact 3: Discovery Knowledge Base
+I developed a repository of interview guides, observation guides, checklists, FAQs, and troubleshooting guides
+that substantially reduced the prep time it takes to conduct interviews at this scale, resulting in
+**a self-service model that interviewers could use with minimal onboarding**.
 
 # Pull quote
-> The constraint that shaped this was security, not capability. I had to build that connective layer myself,
-> using tools that were already sanctioned.
-— Karina, on why the AI workflow had to be self-built rather than bought
+> Teams enjoyed discovery so much more this time around. What felt chaotic, disconnected, and unclear before now
+> felt like a well-oiled machine. Rather than fighting nerves and logistics, they could listen deeply and learn
+> quickly.
+— Fun fact
 
 # Outcome
 Together, the two tracks turned a discovery problem with no starting material into a repeatable process: field
@@ -96,17 +92,10 @@ administrative synthesis work and could focus on requirements that were both acc
 to matter.
 
 ## Stat 1: 100+
-workflows mapped facility by facility, with no inherited documentation
+interviews conducted across nearly a dozen teams
 
 ## Stat 2: 2 weeks
-to run 100+ interviews across 8 product teams
+cut time spent conducting interviews from months to weeks
 
-## Stat 3: Weeks → days
-requirements-gathering timeline, cut with zero added cost or security approval
-
-# What's next in this series
-This case study covers how Project MAKE built its discovery process from nothing, on the floor and in a
-self-built AI workflow. The [alignment workshop](project-make-alignment.html) that turned that discovery work
-into a shared plan is its own case study, as is the [change-management work](project-make-go-live.html) that
-carried the plan through to a zero-downtime go-live. A mobility hardware rollout — Android handhelds and
-scanners tested on the plant floor before deployment — is still to come.
+## Stat 3: Day 1
+insights gathered right after interviews
